@@ -1,21 +1,21 @@
 import "./App.css";
-import AudioPlayer from "./components/AudioPlayer";
-import Footer from "./components/Footer";
-import Navmenu from "./components/Navmenu";
-import Sidebar from "./components/Sidebar";
-import Tracklist from "./components/Tracklist";
-
+import AudioPlayer from "./components/AudioPlayer/AudioPlayer";
+import Navmenu from "./components/NavMenu/Navmenu";
+import Sidebar from "./components/SideBar/SideBar";
+// import TrackList from "./components/TrackList/Tracklist";
+import TracksList from "./components/TrackList/TracksList";
 
 const App = () => {
   return <div className="wrapper">
     <div className="container">
       <main className="main">
         <Navmenu />
-        < Tracklist />
+        <TracksList />
         <Sidebar />
+
       </main >
       <AudioPlayer />
-      <Footer />
+
     </div >
   </div >
 };

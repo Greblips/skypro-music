@@ -1,5 +1,6 @@
-import React from 'react';
 
+import "./NavMenu.css";
+import NavMenuItems from '../NavMenuItems/NavMenuItems';
 const Navmenu = () => {
     return (
         <nav className="main__nav nav">
@@ -13,15 +14,9 @@ const Navmenu = () => {
             </div>
             <div className="nav__menu menu">
                 <ul className="menu__list">
-                    <li className="menu__item">
-                        <a href="/#" className="menu__link">Главное</a>
-                    </li>
-                    <li className="menu__item">
-                        <a href="/#" className="menu__link">Мой плейлист</a>
-                    </li>
-                    <li className="menu__item">
-                        <a href="../signin.html" className="menu__link">Войти</a>
-                    </li>
+                    <NavMenuItems item={{ link: "#", text: "Главное" }} />
+                    <NavMenuItems item={{ link: "#", text: "Мой плейлист" }} />
+                    <NavMenuItems item={{ link: "../signin.html", text: "Войти" }} />
                 </ul>
             </div>
         </nav>

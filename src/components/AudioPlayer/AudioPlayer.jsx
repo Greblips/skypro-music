@@ -1,7 +1,8 @@
 import React from 'react';
+import "./AudioPlayer.css";
 
-const AudioPlayer = () => {
-    return (
+const AudioPlayer = () =>
+    <>
         <div className="bar">
             <div className="bar__content">
                 <div className="bar__player-progress"></div>
@@ -87,7 +88,7 @@ const AudioPlayer = () => {
                 </div>
             </div>
         </div>
-    );
-};
+    </>
+
 
 export default AudioPlayer;
