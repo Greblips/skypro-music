@@ -1,6 +1,6 @@
 import React from 'react';
 import "./TracksList.css";
-import { Tracks } from "../TrackListItem/Tracks";
+import Tracks from "../TrackListItem/Tracks";
 import TrackListHeader from '../TrackListHeader/TrackListHeader';
 
 

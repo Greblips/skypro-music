@@ -15,7 +15,7 @@ const App = () => {
 
       </main >
       <AudioPlayer />
-
+      <footer className="footer" />
     </div >
   </div >
 };

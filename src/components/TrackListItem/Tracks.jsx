@@ -2,7 +2,7 @@ import { BrowserRouter, Link } from "react-router-dom";
 import arrTracks from "../../utils/TracksDate";
 import "./Tracks.css";
 
-export function Tracks() {
+const Tracks = () => {
     const trackItems = arrTracks.map((track) => (
         <li key={track.id} className="playlist__item">
             <div className="playlist__track track">
@@ -50,4 +50,5 @@ export function Tracks() {
     ));
 
     return <ul className="content__playlist playlist">{trackItems}</ul>;
-}
+};
+export default Tracks;
