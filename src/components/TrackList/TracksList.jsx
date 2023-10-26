@@ -5,7 +5,7 @@ import TrackListHeader from '../TrackListHeader/TrackListHeader';
 
 
 
-const TracksList = () => {
+const TracksList = ({ isLoading }) => {
     return (
         <div className="main__centerblock centerblock">
             <div className="centerblock__search search">
@@ -30,7 +30,7 @@ const TracksList = () => {
             </div>
             <div className="centerblock__content">
                 <TrackListHeader />
-                <Tracks />
+                <Tracks isLoading={isLoading} />
             </div>
         </div>
     );

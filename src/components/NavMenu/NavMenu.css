@@ -40,6 +40,9 @@
   -ms-flex-pack: justify;
   justify-content: space-between;
 }
+.active {
+  opacity: 0.5s;
+}
 
 .nav__menu {
   display: block;
