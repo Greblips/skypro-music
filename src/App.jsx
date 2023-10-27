@@ -26,7 +26,7 @@ const App = () => {
       <main className="main">
         <Navmenu />
         <TracksList isLoading={isLoading} />
-        <Sidebar />
+        <Sidebar isLoading={isLoading} />
 
       </main >
       <AudioPlayer isLoading={isLoading} />
