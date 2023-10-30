@@ -18,7 +18,7 @@ const Sidebar = ({ isLoading }) => {
                 <div className="sidebar__list">
                     <Skeleton width="250px" height="150px" marginBottom="30px" />
                     <Skeleton width="250px" height="150px" marginBottom="30px" />
-                    <Skeleton width="250px" height="150px" margin="0" />
+                    <Skeleton width="250px" height="150px" />
                 </div>
             </div>) : (<div className="sidebar__block">
                 <div className="sidebar__list">
