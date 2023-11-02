@@ -1,34 +1,30 @@
 import React from 'react';
-import "./TracksList.css";
+
 import Tracks from "../TrackListItem/Tracks";
 import TrackListHeader from '../TrackListHeader/TrackListHeader';
-import TrackListFilter from '../TrackListFilter/TrackListFilter';
-
-
-
-
+import TrackListFilter from '../TrackListFilter/TracklListFilter';
+import * as S from "./TrackList.style";
 
 const TracksList = ({ isLoading }) => {
     return (
-        <div className="main__centerblock centerblock">
-            <div className="centerblock__search search">
-                <svg className="search__svg">
+        <S.mainCenterBlock>
+            <S.centerBlockSearch>
+                <S.searchSvg>
                     <use xlinkHref="img/icon/sprite.svg#icon-search" />
-                </svg>
-                <input
-                    className="search__text"
+                </S.searchSvg>
+                <S.searchText
                     type="search"
                     placeholder="Поиск"
                     name="search"
                 />
-            </div>
-            <h2 className="centerblock__h2">Треки</h2>
+            </S.centerBlockSearch>
+            <S.centerBlockhH2>Треки</S.centerBlockhH2>
             <TrackListFilter />
-            <div className="centerblock__content">
+            <S.centerblockContent>
                 <TrackListHeader />
                 <Tracks isLoading={isLoading} />
-            </div>
-        </div>
+            </S.centerblockContent>
+        </S.mainCenterBlock>
     );
 };
 

@@ -1,4 +1,5 @@
-import "./TracklistFilterCategory.css";
+
+import * as S from './TracklistFilterCategory.style'
 
 const TrackListFilterCategory = ({
     nameCategory,
@@ -10,24 +11,20 @@ const TrackListFilterCategory = ({
         setActiveCategory(isActiveCategory === nameCategory ? "" : nameCategory);
 
     return (
-        <div className="filter__category-name">
-            <button
+        <S.filterCategoryName>
+            <S.filterButton
                 type="button"
                 onClick={switchСategoryFilter}
-                className={
-                    isActiveCategory === nameCategory
-                        ? "filter__button _btn_active"
-                        : "filter__button _btn-text"
-                }
+                $activeStyle={isActiveCategory === nameCategory}
             >
                 {nameCategory}
-            </button>
+            </S.filterButton>
             {isActiveCategory === nameCategory && (
-                <div className="filter__category-menu">
-                    <ul className="filter__list">{content}</ul>
-                </div>
+                <S.filterCategoryMenu>
+                    <S.filterList>{content}</S.filterList>
+                </S.filterCategoryMenu>
             )}
-        </div>
+        </S.filterCategoryName>
     );
 }
 export default TrackListFilterCategory

@@ -1,19 +1,21 @@
-.wrapper {
+import styled from "styled-components";
+
+export const wrapper = styled.div`
   width: 100%;
   min-height: 100%;
   overflow: hidden;
   background-color: #383838;
-}
+`;
 
-.container {
+export const container = styled.div`
   max-width: 1920px;
   height: 100vh;
   margin: 0 auto;
   position: relative;
   background-color: #181818;
-}
+`;
 
-.main {
+export const mainBlock = styled.div`
   -webkit-box-flex: 1;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -25,4 +27,4 @@
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-}
+`;

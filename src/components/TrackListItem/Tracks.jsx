@@ -1,97 +1,96 @@
-import { BrowserRouter, Link } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import arrTracks from "../../utils/TracksDate";
 import "./Tracks.css";
 import Skeleton from "../../utils/Skeleton";
+import * as S from './Tracks.style'
 
 const Tracks = ({ isLoading }) => {
     const trackItems = arrTracks.map((track) => (
-        <li key={track.id} className="playlist__item">
-            {isLoading ? (<div className="playlist__track track">
-                <div className="track__title">
-                    <div className="track__title-image">
+        <S.playlistItem key={track.id}>
+            {isLoading ? (<S.playlistTrack>
+                <S.trackTitle>
+                    <S.trackTitleImage>
                         <Skeleton width="51px" height="51px" />
-                    </div>
-
-
-                    <div className="track__title-text">
+                    </S.trackTitleImage>
+                    <S.trackTitleText>
                         <BrowserRouter>
-                            <Link className="track__title-link" href="http://">
+                            <S.trackTitleLink to="http://">
                                 <Skeleton width="380px" height="20px" />
-                                <span className="track__title-span" />
-                            </Link>
+                                {/* <span className="track__title-span" /> */}
+                            </S.trackTitleLink>
                         </BrowserRouter>
-                    </div>
-                </div>
-                < div className="track__author">
+                    </S.trackTitleText>
+                </S.trackTitle>
+                < S.trackAuthor>
                     <BrowserRouter>
-                        <Link className="track__author-link" href="http://">
+                        <S.trackAuthorLink to="http://">
                             <Skeleton width="321px" height="20px" />
-                        </Link>
+                        </S.trackAuthorLink>
                     </BrowserRouter>
-                </div>
+                </S.trackAuthor>
 
-                <div className="track__album">
+                <S.trackAlbum>
                     <BrowserRouter>
-                        <Link className="track__album-link" href="http://">
+                        <S.trackAlbumLink to="http://">
                             <Skeleton width="245px" height="20px" />
-                        </Link>
+                        </S.trackAlbumLink>
                     </BrowserRouter>
-                </div>
-                <div className="track__time">
-                    <svg className="track__time-svg" alt="time">
+                </S.trackAlbum>
+                <S.trackTime>
+                    <S.trackTimeSvg alt="time">
                         <use xlinkHref="img/icon/sprite.svg#icon-like" />
-                    </svg>
-                    <span className="track__time-text"> {track.trackTime}</span>
-                </div>
-            </div>) : (
-                <div className="playlist__track track">
-                    <div className="track__title">
-                        <div className="track__title-image">
-                            <svg className="track__title-svg" alt="music">
+                    </S.trackTimeSvg>
+                    <S.trackTimeText> {track.trackTime}</S.trackTimeText>
+                </S.trackTime>
+            </S.playlistTrack>) : (
+                <S.playlistTrack>
+                    <S.trackTitle>
+                        <S.trackTitleImage>
+                            <S.trackTitleImage alt="music">
                                 <use xlinkHref="img/icon/sprite.svg#icon-note" />
-                            </svg>
-                        </div>
+                            </S.trackTitleImage>
+                        </S.trackTitleImage>
 
 
-                        <div className="track__title-text">
+                        <S.trackTitleText>
                             <BrowserRouter>
-                                <Link className="track__title-link" href="http://">
+                                <S.trackTitleLink to="http://">
                                     {track.trackName}
                                     {track.remix ? (
                                         <span className="track__title-span">({track.remix})</span>
                                     ) : (
                                         ""
                                     )}
-                                </Link>
+                                </S.trackTitleLink>
                             </BrowserRouter>
-                        </div>
-                    </div>
-                    < div className="track__author">
+                        </S.trackTitleText>
+                    </S.trackTitle>
+                    < S.trackAuthor>
                         <BrowserRouter>
-                            <Link className="track__author-link" href="http://">
+                            <S.trackAuthorLink to="http://">
                                 {track.trackAuthor}
-                            </Link>
+                            </S.trackAuthorLink>
                         </BrowserRouter>
-                    </div>
+                    </S.trackAuthor>
 
-                    <div className="track__album">
+                    <S.trackAlbum>
                         <BrowserRouter>
-                            <Link className="track__album-link" href="http://">
+                            <S.trackAlbumLink to="http://">
                                 {track.album}
-                            </Link>
+                            </S.trackAlbumLink>
                         </BrowserRouter>
-                    </div>
-                    <div className="track__time">
-                        <svg className="track__time-svg" alt="time">
+                    </S.trackAlbum>
+                    <S.trackTime>
+                        <S.trackTimeSvg alt="time">
                             <use xlinkHref="img/icon/sprite.svg#icon-like" />
-                        </svg>
-                        <span className="track__time-text"> {track.trackTime}</span>
-                    </div>
-                </div>
+                        </S.trackTimeSvg>
+                        <S.trackTimeText> {track.trackTime}</S.trackTimeText>
+                    </S.trackTime>
+                </S.playlistTrack>
             )}
-        </li >
+        </S.playlistItem >
     ));
 
-    return <ul className="content__playlist playlist">{trackItems}</ul>;
+    return <S.contentPlaylist>{trackItems}</S.contentPlaylist>;
 };
 export default Tracks;

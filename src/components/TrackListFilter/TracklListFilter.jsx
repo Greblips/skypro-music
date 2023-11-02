@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./TrackListFilter.css";
+import * as S from "./TrackListFilter.style";
 
 import arrTracks from "../../utils/TracksDate";
 import TrackListFilterCategory from "../TracklistFilterCategory/TracklistFilterCategory";
@@ -7,14 +7,14 @@ import TrackListFilterCategory from "../TracklistFilterCategory/TracklistFilterC
 const TrackListFilter = () => {
     const [activeCategoryFilter, setActiveCategoryFilter] = useState("");
     return (
-        <div className="centerblock__filter filter">
-            <div className="filter__title">Искать по:</div>
+        <S.centerblockFilter>
+            <S.filterTitle>Искать по:</S.filterTitle>
             <TrackListFilterCategory
                 nameCategory="исполнителю"
                 content={arrTracks.map((track) => (
-                    <li key={track.id} className="filter__item">
+                    <S.filterItem key={track.id}>
                         {track.trackAuthor}
-                    </li>
+                    </S.filterItem>
                 ))}
                 isActiveCategory={activeCategoryFilter}
                 setActiveCategory={setActiveCategoryFilter}
@@ -24,9 +24,9 @@ const TrackListFilter = () => {
                 isActiveCategory={activeCategoryFilter}
                 setActiveCategory={setActiveCategoryFilter}
                 content={arrTracks.map((track) => (
-                    <li key={track.id} className="filter__item">
+                    <S.filterItem key={track.id} >
                         {track.year}
-                    </li>
+                    </S.filterItem>
                 ))}
             />
             <TrackListFilterCategory
@@ -34,12 +34,12 @@ const TrackListFilter = () => {
                 isActiveCategory={activeCategoryFilter}
                 setActiveCategory={setActiveCategoryFilter}
                 content={arrTracks.map((track) => (
-                    <li key={track.id} className="filter__item">
+                    <S.filterItem key={track.id}>
                         {track.genre}
-                    </li>
+                    </S.filterItem>
                 ))}
             />
-        </div>
+        </S.centerblockFilter>
     );
 }
 export default TrackListFilter

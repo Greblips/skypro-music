@@ -1,19 +1,19 @@
-import { BrowserRouter, Link } from "react-router-dom";
-import "./SideBarItems.css";
+import { BrowserRouter } from "react-router-dom";
+
+import * as S from "./SideBarItems.style"
 
 const SideBarItems = (props) => {
     return (
-        <div className="sidebar__item">
+        <S.sidebarItem>
             <BrowserRouter>
-                <Link className="sidebar__link" href={props.item.link}>
-                    <img
-                        className="sidebar__img"
+                <S.sidebarItemLink href={props.item.link}>
+                    <S.sidebarItemLinkImg
                         src={props.item.img}
                         alt="day's playlist"
                     />
-                </Link>
+                </S.sidebarItemLink>
             </BrowserRouter>
-        </div>
+        </S.sidebarItem>
     );
 };
 
