@@ -4,6 +4,7 @@ import AudioPlayer from "./components/AudioPlayer/AudioPlayer";
 import Navmenu from "./components/NavMenu/Navmenu";
 import Sidebar from "./components/SideBar/SideBar";
 import TracksList from "./components/TrackList/TracksList";
+import * as S from './App.style'
 
 const App = () => {
   const [isLoading, setLoading] = useState(true);
@@ -21,18 +22,18 @@ const App = () => {
   }, [isLoading]);
 
 
-  return <div className="wrapper">
-    <div className="container">
-      <main className="main">
+  return <S.wrapper>
+    <S.container>
+      <S.mainBlock>
         <Navmenu />
         <TracksList isLoading={isLoading} />
         <Sidebar isLoading={isLoading} />
 
-      </main >
+      </S.mainBlock >
       <AudioPlayer isLoading={isLoading} />
-      <footer className="footer" />
-    </div >
-  </div >
+      {/* <footer className="footer" /> */}
+    </S.container >
+  </S.wrapper >
 };
 
 export default App;
