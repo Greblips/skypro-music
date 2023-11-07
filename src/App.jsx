@@ -1,4 +1,4 @@
-import "./App.css";
+// import "./App.css";
 import { useState, useEffect } from "react";
 import AudioPlayer from "./components/AudioPlayer/AudioPlayer";
 import Navmenu from "./components/NavMenu/Navmenu";
@@ -31,7 +31,7 @@ const App = () => {
 
       </S.mainBlock >
       <AudioPlayer isLoading={isLoading} />
-      {/* <footer className="footer" /> */}
+
     </S.container >
   </S.wrapper >
 };
