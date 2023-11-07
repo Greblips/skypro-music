@@ -1,18 +1,18 @@
-import { BrowserRouter } from "react-router-dom";
+
 
 import * as S from "./SideBarItems.style"
 
 const SideBarItems = (props) => {
     return (
         <S.sidebarItem>
-            <BrowserRouter>
-                <S.sidebarItemLink href={props.item.link}>
-                    <S.sidebarItemLinkImg
-                        src={props.item.img}
-                        alt="day's playlist"
-                    />
-                </S.sidebarItemLink>
-            </BrowserRouter>
+
+            <S.sidebarItemLink href={props.item.link}>
+                <S.sidebarItemLinkImg
+                    src={props.item.img}
+                    alt="day's playlist"
+                />
+            </S.sidebarItemLink>
+
         </S.sidebarItem>
     );
 };

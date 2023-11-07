@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 export const playlistItem = styled.li`
   width: 100%;
@@ -66,7 +65,7 @@ export const trackTitleImage = styled.div`
 
 export const trackTitleText = styled.div``;
 
-export const trackTitleLink = styled(Link)`
+export const trackTitleLink = styled.a`
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -84,7 +83,7 @@ export const trackAuthor = styled.div`
   justify-content: flex-start;
 `;
 
-export const trackAuthorLink = styled(Link)`
+export const trackAuthorLink = styled.a`
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -96,7 +95,7 @@ export const trackAlbum = styled.div`
   width: 245px;
 `;
 
-export const trackAlbumLink = styled(Link)`
+export const trackAlbumLink = styled.a`
   font-style: normal;
   font-weight: 400;
   font-size: 16px;

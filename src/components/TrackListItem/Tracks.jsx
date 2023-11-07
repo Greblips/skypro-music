@@ -1,6 +1,5 @@
-import { BrowserRouter } from "react-router-dom";
+
 import arrTracks from "../../utils/TracksDate";
-import "./Tracks.css";
 import Skeleton from "../../utils/Skeleton";
 import * as S from './Tracks.style'
 
@@ -13,28 +12,22 @@ const Tracks = ({ isLoading }) => {
                         <Skeleton width="51px" height="51px" />
                     </S.trackTitleImage>
                     <S.trackTitleText>
-                        <BrowserRouter>
-                            <S.trackTitleLink to="http://">
-                                <Skeleton width="380px" height="20px" />
-                                {/* <span className="track__title-span" /> */}
-                            </S.trackTitleLink>
-                        </BrowserRouter>
+                        <S.trackTitleLink href="http://">
+                            <Skeleton width="380px" height="20px" />
+                            {/* <span className="track__title-span" /> */}
+                        </S.trackTitleLink>
                     </S.trackTitleText>
                 </S.trackTitle>
                 < S.trackAuthor>
-                    <BrowserRouter>
-                        <S.trackAuthorLink to="http://">
-                            <Skeleton width="321px" height="20px" />
-                        </S.trackAuthorLink>
-                    </BrowserRouter>
+                    <S.trackAuthorLink href="http://">
+                        <Skeleton width="321px" height="20px" />
+                    </S.trackAuthorLink>
                 </S.trackAuthor>
 
                 <S.trackAlbum>
-                    <BrowserRouter>
-                        <S.trackAlbumLink to="http://">
-                            <Skeleton width="245px" height="20px" />
-                        </S.trackAlbumLink>
-                    </BrowserRouter>
+                    <S.trackAlbumLink href="http://">
+                        <Skeleton width="245px" height="20px" />
+                    </S.trackAlbumLink>
                 </S.trackAlbum>
                 <S.trackTime>
                     <S.trackTimeSvg alt="time">
@@ -53,32 +46,26 @@ const Tracks = ({ isLoading }) => {
 
 
                         <S.trackTitleText>
-                            <BrowserRouter>
-                                <S.trackTitleLink to="http://">
-                                    {track.trackName}
-                                    {track.remix ? (
-                                        <span className="track__title-span">({track.remix})</span>
-                                    ) : (
-                                        ""
-                                    )}
-                                </S.trackTitleLink>
-                            </BrowserRouter>
+                            <S.trackTitleLink to="http://">
+                                {track.trackName}
+                                {track.remix ? (
+                                    <span className="track__title-span">({track.remix})</span>
+                                ) : (
+                                    ""
+                                )}
+                            </S.trackTitleLink>
                         </S.trackTitleText>
                     </S.trackTitle>
                     < S.trackAuthor>
-                        <BrowserRouter>
-                            <S.trackAuthorLink to="http://">
-                                {track.trackAuthor}
-                            </S.trackAuthorLink>
-                        </BrowserRouter>
+                        <S.trackAuthorLink to="http://">
+                            {track.trackAuthor}
+                        </S.trackAuthorLink>
                     </S.trackAuthor>
 
                     <S.trackAlbum>
-                        <BrowserRouter>
-                            <S.trackAlbumLink to="http://">
-                                {track.album}
-                            </S.trackAlbumLink>
-                        </BrowserRouter>
+                        <S.trackAlbumLink to="http://">
+                            {track.album}
+                        </S.trackAlbumLink>
                     </S.trackAlbum>
                     <S.trackTime>
                         <S.trackTimeSvg alt="time">
