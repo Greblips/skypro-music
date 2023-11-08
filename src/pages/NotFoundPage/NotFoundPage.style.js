@@ -62,6 +62,7 @@ export const notFoundBlockText = styled.p`
   letter-spacing: -0.054px;
 `;
 export const notFoundBlockButton = styled.button`
+  border-radius: 15px;
   border: none;
   outline: none;
   width: 278px;
