@@ -5,6 +5,7 @@ import Sidebar from "../../components/SideBar/SideBar";
 import TracksList from "../../components/TrackList/TracksList";
 import * as S from './main.style'
 
+
 export const Main = () => {
     const [isLoading, setLoading] = useState(true);
 

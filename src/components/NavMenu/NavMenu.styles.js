@@ -44,7 +44,7 @@ export const BurgerLine = styled.span`
 `;
 
 export const NavMenu = styled.div`
-  display: block;
+  display: flex;
   visibility: visible;
 `;
 
