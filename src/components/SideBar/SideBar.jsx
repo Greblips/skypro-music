@@ -2,20 +2,14 @@
 import SideBarItems from '../SideBarItems/SideBarItems';
 import Skeleton from '../../utils/Skeleton';
 import * as S from "./SideBar.styles";
+import SideBarPersonal from '../SideBarPersonal/SideBarPersonal';
 
 
 
 const Sidebar = ({ isLoading }) => {
     return (
         <S.mainSidebar>
-            <S.sidebarPersonal>
-                <S.sidebarPersonalName>Evgeny.Kerimov</S.sidebarPersonalName>
-                <S.sidebarPeronalIcon>
-                    <svg alt="logout">
-                        <use xlinkHref="img/icon/sprite.svg#logout"></use>
-                    </svg>
-                </S.sidebarPeronalIcon>
-            </S.sidebarPersonal>
+            <SideBarPersonal />
             {isLoading ? (<S.sidebarBlock>
                 <S.sidebarList>
                     <Skeleton width="250px" height="150px" marginBottom="30px" />
