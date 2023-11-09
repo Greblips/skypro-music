@@ -4,41 +4,41 @@ import NavMenu from "../../components/NavMenu/Navmenu";
 import TrackListSearh from "../../components/TrackListSearh/TrackListSearh";
 import * as S from "../main/main.style";
 import * as Style from "./NotFoundPage.style"
-
+import { useNavigate } from "react-router-dom";
 import SideBarPersonal from "../../components/SideBarPersonal/SideBarPersonal";
 
 
 
 
 const NotFoundPage = () => {
-
+    const navigate = useNavigate();
     return (
         <S.wrapper>
             <S.container>
-                <Style.mainBlock>
+                <Style.MainBlock>
                     <NavMenu />
-                    <Style.mainCenterBlock><TrackListSearh />
+                    <Style.MainCenterBlock><TrackListSearh />
                         <Style.NotFoundBlock>
-                            <Style.notFoundBlockTitle>404</Style.notFoundBlockTitle>
-                            <Style.notFoundBlockItem>
-                                <Style.notFoundBlockItemTitle>
+                            <Style.NotFoundBlockTitle>404</Style.NotFoundBlockTitle>
+                            <Style.NotFoundBlockItem>
+                                <Style.NotFoundBlockItemTitle>
                                     Страница не найдена
-                                </Style.notFoundBlockItemTitle>
-                                <img src="../img/icon/smile_crying.svg" alt="smile_crying" /></Style.notFoundBlockItem>
-                            <Style.notFoundBlockItem />
-                            <Style.notFoundBlockText>
+                                </Style.NotFoundBlockItemTitle>
+                                <img src="../img/icon/smile_crying.svg" alt="smile_crying" />
+                            </Style.NotFoundBlockItem>
+                            <Style.NotFoundBlockText>
                                 Возможно, она была удалена
                                 <br /> или перенесена на другой адрес
-                            </Style.notFoundBlockText>
-                            <Style.notFoundBlockButton type="button" >
+                            </Style.NotFoundBlockText>
+                            <Style.NotFoundBlockButton type="button" onClick={() => navigate("/")} >
                                 Вернуться на главную
-                            </Style.notFoundBlockButton>
+                            </Style.NotFoundBlockButton>
                         </Style.NotFoundBlock>
 
-                    </Style.mainCenterBlock>
-                    <Style.mainSidebar><SideBarPersonal /></Style.mainSidebar>
+                    </Style.MainCenterBlock>
+                    <Style.MainSidebar><SideBarPersonal /></Style.MainSidebar>
 
-                </Style.mainBlock>
+                </Style.MainBlock>
             </S.container>
 
         </S.wrapper>

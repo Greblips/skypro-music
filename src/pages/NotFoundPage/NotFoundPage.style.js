@@ -1,11 +1,11 @@
 import { styled } from "styled-components";
 
-export const mainSidebar = styled.div`
+export const MainSidebar = styled.div`
   max-width: 418px;
   padding: 20px 90px 20px 78px;
 `;
 
-export const mainCenterBlock = styled.div`
+export const MainCenterBlock = styled.div`
   width: auto;
   -webkit-box-flex: 3;
   -ms-flex-positive: 3;
@@ -13,7 +13,7 @@ export const mainCenterBlock = styled.div`
   padding: 20px 40px 20px 111px;
 `;
 
-export const mainBlock = styled.div`
+export const MainBlock = styled.div`
   display: flex;
   flex-wrap: wrap;
   -webkit-box-pack: justify;
@@ -28,7 +28,7 @@ export const NotFoundBlock = styled.div`
   justify-content: center;
   align-items: center;
 `;
-export const notFoundBlockTitle = styled.h3`
+export const NotFoundBlockTitle = styled.h3`
   color: #fff;
   font-variant-numeric: lining-nums proportional-nums;
   font-feature-settings: "clig" off, "liga" off;
@@ -39,18 +39,18 @@ export const notFoundBlockTitle = styled.h3`
   line-height: 168px;
 `;
 
-export const notFoundBlockItem = styled.div`
+export const NotFoundBlockItem = styled.div`
   display: flex;
   flex-direction: row;
   gap: 8px;
 `;
 
-export const notFoundBlockItemTitle = styled(notFoundBlockTitle)`
+export const NotFoundBlockItemTitle = styled(NotFoundBlockTitle)`
   font-size: 32px;
   line-height: 40px;
 `;
 
-export const notFoundBlockText = styled.p`
+export const NotFoundBlockText = styled.p`
   color: #4e4e4e;
   text-align: center;
   font-variant-numeric: lining-nums proportional-nums;
@@ -61,7 +61,7 @@ export const notFoundBlockText = styled.p`
   line-height: 24px; /* 133.333% */
   letter-spacing: -0.054px;
 `;
-export const notFoundBlockButton = styled.button`
+export const NotFoundBlockButton = styled.button`
   border-radius: 15px;
   border: none;
   outline: none;
