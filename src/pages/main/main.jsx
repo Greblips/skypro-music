@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import AudioPlayer from "../../components/AudioPlayer/AudioPlayer";
+import { AudioPlayer } from "../../components/AudioPlayer/AudioPlayer";
 import Navmenu from "../../components/NavMenu/Navmenu";
-import Sidebar from "../../components/SideBar/SideBar";
+import { Sidebar } from "../../components/SideBar/SideBar";
 import TracksList from "../../components/TrackList/TracksList";
 import * as S from './main.style'
 

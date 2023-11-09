@@ -3,7 +3,7 @@ import Skeleton from '../../utils/Skeleton';
 import * as S from "./AudioPlayer.styles";
 import AudioPlayerIcons from '../AudioPlayerIcons/AudioPlayerIcons';
 
-const AudioPlayer = ({ isLoading }) =>
+export const AudioPlayer = ({ isLoading }) =>
     <>
         <S.bar>
             <S.barContent>
@@ -95,4 +95,3 @@ const AudioPlayer = ({ isLoading }) =>
     </>
 
 
-export default AudioPlayer;

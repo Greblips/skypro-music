@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from "../main/main.style";
-import AudioPlayer from '../../components/AudioPlayer/AudioPlayer';
+import { AudioPlayer } from '../../components/AudioPlayer/AudioPlayer';
 import Navmenu from "../../components/NavMenu/Navmenu"
 
 const favorits = () => {
@@ -13,7 +13,6 @@ const favorits = () => {
                     <h1>FavoritesPages</h1>
                 </S.mainBlock>
                 <AudioPlayer />
-                <footer className="footer" />
             </S.container>
         </S.wrapper>
     );

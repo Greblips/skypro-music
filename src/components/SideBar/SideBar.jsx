@@ -1,30 +1,34 @@
-
-import SideBarItems from '../SideBarItems/SideBarItems';
-import Skeleton from '../../utils/Skeleton';
-import * as S from "./SideBar.styles";
-import SideBarPersonal from '../SideBarPersonal/SideBarPersonal';
+import * as S from "../SideBar/SideBar.styles";
+import { playListArr } from "../../utils/playListArr";
+import Skeleton from "../../utils/Skeleton"
 
 
+export function Sidebar({ isLoading }) {
+    const categoryPlayList = playListArr.map((category) => (
+        <S.SidebarItem key={category.id}>
+            {isLoading ? (
+                <Skeleton width="250px" height="150px" />
+            ) : (
+                <S.SidebarLink to={`/category/${category.id}`}>
+                    <S.SidebarImg src={category.img} alt={category.alt} />
+                </S.SidebarLink>
+            )}
+        </S.SidebarItem>
+    ));
 
-const Sidebar = ({ isLoading }) => {
     return (
         <S.mainSidebar>
-            <SideBarPersonal />
-            {isLoading ? (<S.sidebarBlock>
-                <S.sidebarList>
-                    <Skeleton width="250px" height="150px" marginBottom="30px" />
-                    <Skeleton width="250px" height="150px" marginBottom="30px" />
-                    <Skeleton width="250px" height="150px" />
-                </S.sidebarList>
-            </S.sidebarBlock>) : (<S.sidebarBlock>
-                <S.sidebarList>
-                    <SideBarItems item={{ link: "#", img: "img/playlist01.png" }} />
-                    <SideBarItems item={{ link: "#", img: "img/playlist02.png" }} />
-                    <SideBarItems item={{ link: "#", img: "img/playlist03.png" }} />
-                </S.sidebarList>
-            </S.sidebarBlock>)}
+            <S.sidebarPersonal>
+                <S.sidebarPersonalName>Evgeny.Kerimov</S.sidebarPersonalName>
+                <S.sidebarIcon>
+                    <svg alt="logout">
+                        <use xlinkHref="img/icon/sprite.svg#logout" />
+                    </svg>
+                </S.sidebarIcon>
+            </S.sidebarPersonal>
+            <S.sidebarBlock>
+                <S.sidebarList>{categoryPlayList}</S.sidebarList>
+            </S.sidebarBlock>
         </S.mainSidebar>
     );
-};
-
-export default Sidebar;
+}

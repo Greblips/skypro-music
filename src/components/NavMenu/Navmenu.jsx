@@ -24,7 +24,7 @@ const Navmenu = () => {
                         <S.MenuList>
                             <NavMenuItems item={{ link: "/", text: "Главное" }} />
                             <NavMenuItems item={{ link: "/favorites", text: "Мой плейлист" }} />
-                            <NavMenuItems item={{ link: "../signin.html", text: "Войти" }} />
+                            <NavMenuItems item={{ link: "/signIn", text: "Выйти" }} />
                         </S.MenuList>
                     </S.NavMenu>
                 )
