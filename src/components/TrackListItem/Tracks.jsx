@@ -1,10 +1,10 @@
 
-import arrTracks from "../../utils/TracksDate";
+import { formatTime } from "../../utils/formatTime";
 import Skeleton from "../../utils/Skeleton";
 import * as S from './Tracks.style'
 
-const Tracks = ({ isLoading }) => {
-    const trackItems = arrTracks.map((track) => (
+const Tracks = ({ isLoading, tracks }) => {
+    const trackItems = tracks.map((track) => (
         <S.playlistItem key={track.id}>
             {isLoading ? (<S.playlistTrack>
                 <S.trackTitle>
@@ -14,7 +14,7 @@ const Tracks = ({ isLoading }) => {
                     <S.trackTitleText>
                         <S.trackTitleLink href="http://">
                             <Skeleton width="380px" height="20px" />
-                            {/* <span className="track__title-span" /> */}
+                            <span className="track__title-span" />
                         </S.trackTitleLink>
                     </S.trackTitleText>
                 </S.trackTitle>
@@ -33,7 +33,7 @@ const Tracks = ({ isLoading }) => {
                     <S.trackTimeSvg alt="time">
                         <use xlinkHref="img/icon/sprite.svg#icon-like" />
                     </S.trackTimeSvg>
-                    <S.trackTimeText> {track.trackTime}</S.trackTimeText>
+                    <S.trackTimeText></S.trackTimeText>
                 </S.trackTime>
             </S.playlistTrack>) : (
                 <S.playlistTrack>
@@ -47,7 +47,7 @@ const Tracks = ({ isLoading }) => {
 
                         <S.trackTitleText>
                             <S.trackTitleLink to="http://">
-                                {track.trackName}
+                                {track.name}
                                 {track.remix ? (
                                     <span className="track__title-span">({track.remix})</span>
                                 ) : (
@@ -58,7 +58,7 @@ const Tracks = ({ isLoading }) => {
                     </S.trackTitle>
                     < S.trackAuthor>
                         <S.trackAuthorLink to="http://">
-                            {track.trackAuthor}
+                            {track.author}
                         </S.trackAuthorLink>
                     </S.trackAuthor>
 
@@ -71,7 +71,7 @@ const Tracks = ({ isLoading }) => {
                         <S.trackTimeSvg alt="time">
                             <use xlinkHref="img/icon/sprite.svg#icon-like" />
                         </S.trackTimeSvg>
-                        <S.trackTimeText> {track.trackTime}</S.trackTimeText>
+                        <S.trackTimeText> {formatTime(track.duration_in_seconds)}</S.trackTimeText>
                     </S.trackTime>
                 </S.playlistTrack>
             )}

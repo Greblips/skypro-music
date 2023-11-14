@@ -22,7 +22,7 @@ export const AudioPlayer = ({ isLoading }) =>
                             {isLoading ? (<S.trackPlayContain >
                                 <S.trackPlayImage>
                                     <S.trackPlaySvg alt="music">
-                                        <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                                        <use xlinkHref="img/icon/sprite.svg#icon-note" />
                                     </S.trackPlaySvg>
                                 </S.trackPlayImage>
                                 <S.trackPlayAuthor>
@@ -40,7 +40,7 @@ export const AudioPlayer = ({ isLoading }) =>
                             </S.trackPlayContain>) : (<S.trackPlayContain>
                                 <S.trackPlayImage>
                                     <S.trackPlaySvg alt="music">
-                                        <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
+                                        <use xlinkHref="img/icon/sprite.svg#icon-note" />
                                     </S.trackPlaySvg>
                                 </S.trackPlayImage>
                                 <S.trackPlayAuthor>
@@ -60,14 +60,12 @@ export const AudioPlayer = ({ isLoading }) =>
                             <S.trackPlayLikeDislike>
                                 <S.trackPlayLike>
                                     <S.trackPlayLikeSvg alt="like">
-                                        <use xlinkHref="img/icon/sprite.svg#icon-like"></use>
+                                        <use xlinkHref="img/icon/sprite.svg#icon-like" />
                                     </S.trackPlayLikeSvg>
                                 </S.trackPlayLike>
                                 <S.trackPlayDislike>
                                     <S.trackPlayDislikeSvg alt="dislike">
-                                        <use
-                                            xlinkHref="img/icon/sprite.svg#icon-dislike"
-                                        ></use>
+                                        <use xlinkHref="img/icon/sprite.svg#icon-dislike" />
                                     </S.trackPlayDislikeSvg>
                                 </S.trackPlayDislike>
                             </S.trackPlayLikeDislike>
@@ -77,7 +75,7 @@ export const AudioPlayer = ({ isLoading }) =>
                         <S.volumeContent>
                             <S.volumeImage>
                                 <S.volumeSvg alt="volume">
-                                    <use xlinkHref="img/icon/sprite.svg#icon-volume"></use>
+                                    <use xlinkHref="img/icon/sprite.svg#icon-volume" />
                                 </S.volumeSvg>
                             </S.volumeImage>
                             <S.volumeProgress>

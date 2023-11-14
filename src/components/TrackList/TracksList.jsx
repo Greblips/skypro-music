@@ -6,7 +6,7 @@ import TrackListFilter from '../TrackListFilter/TracklListFilter';
 import * as S from "./TrackList.style";
 import TrackListSearh from '../TrackListSearh/TrackListSearh';
 
-const TracksList = ({ isLoading }) => {
+const TracksList = ({ isLoading, tracks, loadingTracksError, }) => {
     return (
         <S.mainCenterBlock>
             <TrackListSearh />
@@ -14,7 +14,9 @@ const TracksList = ({ isLoading }) => {
             <TrackListFilter />
             <S.centerblockContent>
                 <TrackListHeader />
-                <Tracks isLoading={isLoading} />
+                <Tracks
+                    isLoading={isLoading}
+                    tracks={tracks} />
             </S.centerblockContent>
         </S.mainCenterBlock>
     );
