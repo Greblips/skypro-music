@@ -3,7 +3,7 @@ import Skeleton from '../../utils/Skeleton';
 import * as S from "./AudioPlayer.styles";
 import AudioPlayerIcons from '../AudioPlayerIcons/AudioPlayerIcons';
 
-export const AudioPlayer = ({ isLoading }) =>
+export const AudioPlayer = ({ isLoading, currentTrack }) =>
     <>
         <S.bar>
             <S.barContent>
@@ -45,12 +45,12 @@ export const AudioPlayer = ({ isLoading }) =>
                                 </S.trackPlayImage>
                                 <S.trackPlayAuthor>
                                     <S.trackPlayAuthorLink href="http://">
-                                        Ты та...
+                                        {currentTrack.name}
                                     </S.trackPlayAuthorLink>
                                 </S.trackPlayAuthor>
                                 <S.trackPlayAlbum>
                                     <S.trackPlayAlbumLink href="http://">
-                                        Баста
+                                        {currentTrack.author}
                                     </S.trackPlayAlbumLink>
                                 </S.trackPlayAlbum>
 

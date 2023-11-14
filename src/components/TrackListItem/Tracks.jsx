@@ -3,9 +3,9 @@ import { formatTime } from "../../utils/formatTime";
 import Skeleton from "../../utils/Skeleton";
 import * as S from './Tracks.style'
 
-const Tracks = ({ isLoading, tracks }) => {
+const Tracks = ({ isLoading, tracks, handleCurrentTrack }) => {
     const trackItems = tracks.map((track) => (
-        <S.playlistItem key={track.id}>
+        <S.playlistItem key={track.id} onClick={() => handleCurrentTrack(track)}>
             {isLoading ? (<S.playlistTrack>
                 <S.trackTitle>
                     <S.trackTitleImage>

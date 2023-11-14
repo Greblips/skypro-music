@@ -3,14 +3,17 @@ import { AudioPlayer } from "../../components/AudioPlayer/AudioPlayer";
 import Navmenu from "../../components/NavMenu/Navmenu";
 import { Sidebar } from "../../components/SideBar/SideBar";
 import TracksList from "../../components/TrackList/TracksList";
-import * as S from './main.style'
-import { getTracksAll } from "../../Api";
+import * as S from './main.style';
+import { getTracksAll } from "../../api"
 
 
 
 export const Main = () => {
     const [isLoading, setLoading] = useState(true);
     const [tracks, setTracks] = useState([]);
+    const [currentTrack, setCurrentTrack] = useState(null);
+    const handleCurrentTrack = (track) => setCurrentTrack(track);
+
     const [loadingTracksError, setLoadingTracksError] = useState(null);
 
     useEffect(() => {
@@ -26,17 +29,18 @@ export const Main = () => {
     }, [isLoading]);
 
     useEffect(() => {
+
         getTracksAll()
             .then((track) => {
-
                 setTracks(track);
             })
             .catch((error) => {
+
                 setLoadingTracksError(error.message);
             });
     }, []);
 
-    console.log(tracks);
+
 
 
     return <S.wrapper>
@@ -46,12 +50,17 @@ export const Main = () => {
                 <TracksList
                     isLoading={isLoading}
                     tracks={tracks}
-                    loadingTracksError={loadingTracksError} />
-                <Sidebar isLoading={isLoading}
+                    loadingTracksError={loadingTracksError}
+                    handleCurrentTrack={handleCurrentTrack} />
+                <Sidebar
+                    isLoading={isLoading}
+                    loadingTracksError={loadingTracksError}
                 />
 
             </S.mainBlock >
-            <AudioPlayer isLoading={isLoading} />
+            {currentTrack && (
+                <AudioPlayer isLoading={isLoading} currentTrack={currentTrack} />
+            )}
 
         </S.container >
     </S.wrapper >
