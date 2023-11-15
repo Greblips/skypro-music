@@ -17,17 +17,17 @@ export const Main = () => {
 
     const [loadingTracksError, setLoadingTracksError] = useState(null);
 
-    useEffect(() => {
-        if (isLoading) {
-            const timer = setTimeout(() => {
-                setLoading(false);
-            }, 2000);
+    // useEffect(() => {
+    //     if (isLoading) {
+    //         const timer = setTimeout(() => {
+    //             setLoading(false);
+    //         }, 2000);
 
-            return () => clearTimeout(timer);
-        }
+    //         return () => clearTimeout(timer);
+    //     }
 
 
-    }, [isLoading]);
+    // }, [isLoading]);
 
     useEffect(() => {
 

@@ -4,7 +4,7 @@ import { AudioPlayer } from "../../components/AudioPlayer/AudioPlayer";
 import { playListArr } from "../../utils/playListArr";
 
 
-export function Category() {
+export function Category(currentTrack) {
     const params = useParams();
 
     const category = playListArr.find(
@@ -19,7 +19,7 @@ export function Category() {
                     <h1>{category.alt}</h1>
                     <img src={category.img} alt={category.alt} />
                 </S.mainBlock>
-                <AudioPlayer />
+                <AudioPlayer currentTrack={currentTrack} />
             </S.container>
         </S.wrapper>
     );
