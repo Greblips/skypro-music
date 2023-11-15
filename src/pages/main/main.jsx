@@ -8,6 +8,7 @@ import { getTracksAll } from "../../api"
 
 
 
+
 export const Main = () => {
     const [isLoading, setLoading] = useState(true);
     const [tracks, setTracks] = useState([]);
@@ -33,12 +34,16 @@ export const Main = () => {
         getTracksAll()
             .then((track) => {
                 setTracks(track);
+
+                setLoading(false);
+
             })
             .catch((error) => {
 
                 setLoadingTracksError(error.message);
             });
-    }, []);
+
+    }, [isLoading]);
 
 
 

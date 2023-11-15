@@ -1,4 +1,4 @@
-const arrTracks = [
+export const arrTracks = [
   {
     id: 0,
     trackName: "Chase",

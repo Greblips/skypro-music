@@ -5,6 +5,8 @@ import TrackListHeader from '../TrackListHeader/TrackListHeader';
 import TrackListFilter from '../TrackListFilter/TracklListFilter';
 import * as S from "./TrackList.style";
 import TrackListSearh from '../TrackListSearh/TrackListSearh';
+import FakeTracks from '../TrackListItem/FakeTracks';
+
 
 const TracksList = ({ isLoading, tracks, loadingTracksError, handleCurrentTrack, }) => {
     return (
@@ -14,16 +16,13 @@ const TracksList = ({ isLoading, tracks, loadingTracksError, handleCurrentTrack,
             <TrackListFilter />
             <S.centerblockContent>
                 <TrackListHeader />
-                {loadingTracksError ? (
-                    <div>Не удалось загрузить плейлист, попробуйте позже</div>
-                ) : (
-                    <Tracks
+
+                {isLoading ? (<FakeTracks />) :
+                    (<Tracks
                         isLoading={isLoading}
                         tracks={tracks}
                         handleCurrentTrack={handleCurrentTrack}
-
-                    />
-                )}
+                        loadingTracksError={loadingTracksError} />)}
             </S.centerblockContent>
         </S.mainCenterBlock>
     );
