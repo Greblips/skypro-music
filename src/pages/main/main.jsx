@@ -29,21 +29,21 @@ export const Main = () => {
 
     // }, [isLoading]);
 
+
+
     useEffect(() => {
 
         getTracksAll()
             .then((track) => {
                 setTracks(track);
-
                 setLoading(false);
-
             })
             .catch((error) => {
 
                 setLoadingTracksError(error.message);
             });
 
-    }, [isLoading]);
+    }, []);
 
 
 
