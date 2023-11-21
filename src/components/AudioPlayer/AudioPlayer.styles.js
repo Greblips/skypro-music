@@ -5,7 +5,7 @@ export const bar = styled.div`
   bottom: 0;
   left: 0;
   width: 100%;
-  background: rgba(28, 28, 28, 0.5);
+  background: rgba(28, 28, 28, 0.9);
 `;
 
 export const barContent = styled.div`
@@ -16,12 +16,6 @@ export const barContent = styled.div`
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-`;
-
-export const barProgress = styled.div`
-  width: 100%;
-  height: 5px;
-  background: #2e2e2e;
 `;
 
 export const barPlayerBlock = styled.div`
@@ -100,22 +94,10 @@ export const trackPlayImage = styled.div`
   -ms-flex-pack: center;
   justify-content: center;
   margin-right: 12px;
-  grid-row: 1;
   -ms-grid-row: 1;
   -ms-grid-row-span: 2;
-  grid-column: 1;
   -ms-grid-column: 1;
   grid-area: image;
-`;
-export const barVolumeBlock = styled.div`
-  width: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  padding: 0 92px 0 0;
 `;
 
 export const trackPlaySvg = styled.svg`
@@ -126,8 +108,6 @@ export const trackPlaySvg = styled.svg`
 `;
 
 export const trackPlayAuthor = styled.div`
-  grid-column: 2;
-  grid-row: 1;
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: author;
@@ -144,8 +124,6 @@ export const trackPlayAuthorLink = styled.a`
 `;
 
 export const trackPlayAlbum = styled.div`
-  grid-column: 2;
-  grid-row: 2;
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   grid-area: album;
@@ -160,7 +138,7 @@ export const trackPlayAlbumLink = styled.a`
   color: #ffffff;
 `;
 
-export const trackPlayLikeDislike = styled.div`
+export const trackPlayLikeDis = styled.div`
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -219,41 +197,4 @@ export const trackPlayDislikeSvg = styled.svg`
   height: 13px;
   fill: transparent;
   stroke: #696969;
-`;
-
-export const volumeContent = styled.div`
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: end;
-`;
-
-export const volumeImage = styled.div`
-  width: 13px;
-  height: 18px;
-  margin-right: 17px;
-`;
-
-export const volumeSvg = styled.svg`
-  width: 13px;
-  height: 18px;
-  fill: transparent;
-`;
-
-export const volumeProgress = styled.div`
-  width: 109px;
-  cursor: pointer;
-`;
-export const volumeProgressLine = styled.input`
-  width: 109px;
-  cursor: pointer;
 `;
