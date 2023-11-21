@@ -1,7 +1,14 @@
-import "./App.css";
+import AppRoutes from "./components/Routes/Routes";
+import { useState } from "react";
 
 const App = () => {
-  return <div className="text">Здесь скоро будет Skypro.Music</div>;
+  const [user, setUser] = useState(false);
+  const handleSignIn = () => {
+    localStorage.setItem("user", "true");
+    const curentLocalStorage = localStorage.getItem("user");
+    setUser(curentLocalStorage);
+  };
+  return <AppRoutes user={user} onAuthButtonClick={handleSignIn} />
 };
 
 export default App;
