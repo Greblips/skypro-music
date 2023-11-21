@@ -6,9 +6,6 @@ export const AudioVolume = ({ audioRef }) => {
     let [volume, setVolume] = useState(30);
     const [isVolume, setIsVolume] = useState(true)
 
-
-
-
     const volumeTrue = () => {
         setVolume(volume = 30)
         setIsVolume(true)
