@@ -11,7 +11,7 @@ export const AudioPlayer = ({ currentTrack }) => {
     const [duration, setDuration] = useState(0);
     const [timeProgress, setTimeProgress] = useState(0);
     const [repeatTrack, setRepeatTrack] = useState(false);
-    console.log(audioRef)
+
     const handleStart = () => {
         audioRef.current.play();
         setIsPlaying(true);
@@ -20,6 +20,8 @@ export const AudioPlayer = ({ currentTrack }) => {
         audioRef.current.pause();
         setIsPlaying(false);
     };
+
+
     const togglePlay = isPlaying ? handleStop : handleStart;
 
     useEffect(() => {

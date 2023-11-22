@@ -20,6 +20,7 @@ export const contentPlaylist = styled.ul`
 export const playlistTrack = styled.div`
   display: -webkit-box;
   display: -ms-flexbox;
+
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;

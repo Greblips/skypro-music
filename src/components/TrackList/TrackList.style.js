@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const mainCenterBlock = styled.div`
-  width: auto;
   -webkit-box-flex: 3;
   -ms-flex-positive: 3;
   flex-grow: 3;

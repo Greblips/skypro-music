@@ -3,35 +3,32 @@ import * as S from "./AudioVolume.style";
 
 export const AudioVolume = ({ audioRef }) => {
 
-    let [volume, setVolume] = useState(30);
-    const [isVolume, setIsVolume] = useState(true)
+    const [volume, setVolume] = useState(40);
+    const [isVolume, setIsVolume] = useState(false);
 
-    const volumeTrue = () => {
-        setVolume(volume = 30)
-        setIsVolume(true)
 
-    };
-
-    const volumeFalse = () => {
-        setVolume(volume = 0)
-        setIsVolume(false)
-
-    };
 
     useEffect(() => {
+
+        setIsVolume(false);
         if (audioRef) {
             audioRef.current.volume = volume / 100;
 
-
         }
+
     }, [volume, audioRef,]);
 
-    const toggleVolume = isVolume ? volumeFalse : volumeTrue;
+
+    const toggleTrackMute = () => {
+        audioRef.current.muted = !isVolume;
+        setIsVolume(!isVolume);
+    };
+
     return (
         <S.barVolumeBlock>
             <S.volumeContent>
                 <S.volumeImage>
-                    <S.volumeSvg alt="volume" onClick={toggleVolume}>
+                    <S.volumeSvg alt="volume" onClick={() => toggleTrackMute()} >
                         <use xlinkHref="img/icon/sprite.svg#icon-volume" />
                     </S.volumeSvg>
                 </S.volumeImage>
@@ -47,6 +44,6 @@ export const AudioVolume = ({ audioRef }) => {
                     />
                 </S.volumeProgress>
             </S.volumeContent>
-        </S.barVolumeBlock>
+        </S.barVolumeBlock >
     );
 }
