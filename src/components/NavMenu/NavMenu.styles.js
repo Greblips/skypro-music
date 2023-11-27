@@ -1,17 +1,19 @@
 import { styled } from "styled-components";
 
 export const MainNav = styled.nav`
-  width: 244px;
   background-color: #181818;
-  padding: 20px 0 20px 36px;
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  height: 100%;
+  width: 100%;
+  padding: 30px 14%;
+  box-sizing: border-box;
 `;
 
 export const NavLogo = styled.div`
   width: 113.33px;
   height: 43px;
-  padding: 13px 0 13px 0;
   background-color: transparent;
-  margin-bottom: 20px;
 `;
 
 export const Logoimage = styled.img`
@@ -51,8 +53,4 @@ export const NavMenu = styled.div`
 export const MenuList = styled.ul`
   position: absolute;
   padding: 18px 0 10px 0;
-`;
-
-export const active = styled.div`
-  top: 0;
 `;

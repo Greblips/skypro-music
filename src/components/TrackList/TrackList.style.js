@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 export const mainCenterBlock = styled.div`
-  -webkit-box-flex: 3;
-  -ms-flex-positive: 3;
-  flex-grow: 3;
+  grid-column: 2 / 3;
+  min-width: 100%;
   padding: 20px 40px 20px 111px;
 `;
 export const centerBlockSearch = styled.div`

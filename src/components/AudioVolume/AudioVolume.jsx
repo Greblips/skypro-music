@@ -6,8 +6,6 @@ export const AudioVolume = ({ audioRef }) => {
     const [volume, setVolume] = useState(40);
     const [isVolume, setIsVolume] = useState(false);
 
-
-
     useEffect(() => {
 
         setIsVolume(false);
@@ -35,7 +33,6 @@ export const AudioVolume = ({ audioRef }) => {
                 <S.volumeProgress>
                     <S.volumeProgressLine
                         $style="input"
-
                         type="range"
                         min={0}
                         max={100}

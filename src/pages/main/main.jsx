@@ -5,8 +5,8 @@ import { Sidebar } from "../../components/SideBar/SideBar";
 import TracksList from "../../components/TrackList/TracksList";
 import * as S from './main.style';
 import { getTracksAll } from "../../api"
-
-
+import TrackListSearh from "../../components/TrackListSearh/TrackListSearh"
+import SideBarPersonal from "../../components/SideBarPersonal/SideBarPersonal";
 
 
 export const Main = () => {
@@ -17,17 +17,6 @@ export const Main = () => {
 
     const [loadingTracksError, setLoadingTracksError] = useState(null);
 
-    // useEffect(() => {
-    //     if (isLoading) {
-    //         const timer = setTimeout(() => {
-    //             setLoading(false);
-    //         }, 2000);
-
-    //         return () => clearTimeout(timer);
-    //     }
-
-
-    // }, [isLoading]);
 
 
 
@@ -50,19 +39,20 @@ export const Main = () => {
 
     return <S.wrapper>
         <S.container>
-            <S.mainBlock>
-                <Navmenu />
-                <TracksList
-                    isLoading={isLoading}
-                    tracks={tracks}
-                    loadingTracksError={loadingTracksError}
-                    handleCurrentTrack={handleCurrentTrack} />
-                <Sidebar
-                    isLoading={isLoading}
-                    loadingTracksError={loadingTracksError}
-                />
+            <Navmenu />
+            <TrackListSearh />
+            <SideBarPersonal />
+            <TracksList
+                isLoading={isLoading}
+                tracks={tracks}
+                loadingTracksError={loadingTracksError}
+                handleCurrentTrack={handleCurrentTrack} />
+            <Sidebar
+                isLoading={isLoading}
+                loadingTracksError={loadingTracksError}
+            />
 
-            </S.mainBlock >
+
             {currentTrack && (
                 <AudioPlayer isLoading={isLoading} currentTrack={currentTrack} />
             )}

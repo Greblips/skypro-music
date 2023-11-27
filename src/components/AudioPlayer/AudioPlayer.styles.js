@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
 export const bar = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  display: grid;
 
+  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
   background: rgba(28, 28, 28, 0.9);
 `;
 

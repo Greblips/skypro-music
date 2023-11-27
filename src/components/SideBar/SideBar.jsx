@@ -1,6 +1,7 @@
 import * as S from "../SideBar/SideBar.styles";
 import { playListArr } from "../../utils/playListArr";
 import Skeleton from "../../utils/Skeleton"
+import SideBarPersonal from "../SideBarPersonal/SideBarPersonal";
 
 
 export function Sidebar({ isLoading }) {
@@ -18,14 +19,7 @@ export function Sidebar({ isLoading }) {
 
     return (
         <S.mainSidebar>
-            <S.sidebarPersonal>
-                <S.sidebarPersonalName>Evgeny.Kerimov</S.sidebarPersonalName>
-                <S.sidebarIcon>
-                    <svg alt="logout">
-                        <use xlinkHref="img/icon/sprite.svg#logout" />
-                    </svg>
-                </S.sidebarIcon>
-            </S.sidebarPersonal>
+
             <S.sidebarBlock>
                 <S.sidebarList>{categoryPlayList}</S.sidebarList>
             </S.sidebarBlock>
