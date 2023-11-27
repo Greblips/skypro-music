@@ -2,17 +2,20 @@
 import NavMenuItems from '../NavMenuItems/NavMenuItems';
 import { useState } from "react";
 import * as S from './NavMenu.styles'
+import { Link } from 'react-router-dom';
+
 
 
 const Navmenu = () => {
     const [burrgerVisible, setBurgherVisible] = useState(false);
+    const toggleBurger = () => setBurgherVisible(!burrgerVisible);
 
     return (
         <S.MainNav >
             <S.NavLogo>
-                <S.Logoimage src="img/logo.png" alt="logo" />
+                <Link to="/"> <S.Logoimage src="img/logo.png" alt="logo" /></Link>
             </S.NavLogo>
-            <S.NavBurger onClick={() => setBurgherVisible(!burrgerVisible)} >
+            <S.NavBurger onClick={toggleBurger} >
                 <S.BurgerLine />
                 <S.BurgerLine />
                 <S.BurgerLine />

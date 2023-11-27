@@ -24,7 +24,7 @@ const NotFoundPage = () => {
                                 <Style.NotFoundBlockItemTitle>
                                     Страница не найдена
                                 </Style.NotFoundBlockItemTitle>
-                                <img src="../img/icon/smile_crying.svg" alt="smile_crying" />
+                                <img src="../img/crying.png" alt="smile_crying" />
                             </Style.NotFoundBlockItem>
                             <Style.NotFoundBlockText>
                                 Возможно, она была удалена

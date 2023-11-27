@@ -29,7 +29,7 @@ export const AudioVolume = ({ audioRef }) => {
             <S.volumeContent>
                 <S.volumeImage>
                     <S.volumeSvg alt="volume" onClick={() => toggleTrackMute()} >
-                        <use xlinkHref="img/icon/sprite.svg#icon-volume" />
+                        <use xlinkHref={isVolume ? "img/icon/sprite.svg#icon-volume-off" : "img/icon/sprite.svg#icon-volume"} />
                     </S.volumeSvg>
                 </S.volumeImage>
                 <S.volumeProgress>

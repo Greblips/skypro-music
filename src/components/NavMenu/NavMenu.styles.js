@@ -49,5 +49,10 @@ export const NavMenu = styled.div`
 `;
 
 export const MenuList = styled.ul`
+  position: absolute;
   padding: 18px 0 10px 0;
+`;
+
+export const active = styled.div`
+  top: 0;
 `;
