@@ -1,14 +1,24 @@
 import AppRoutes from "./components/Routes/Routes";
 import { useState } from "react";
+import { UserContext } from "./components/Context/Context";
+import { useNavigate } from "react-router-dom";
 
 const App = () => {
-  const [user, setUser] = useState(false);
-  const handleSignIn = () => {
-    localStorage.setItem("user", "true");
-    const curentLocalStorage = localStorage.getItem("user");
-    setUser(curentLocalStorage);
+  const navigate = useNavigate();
+  const [user, setUser] = useState(
+    localStorage.getItem("user") || null
+  );
+
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    navigate("/auth", { replace: false });
   };
-  return <AppRoutes user={user} onAuthButtonClick={handleSignIn} />
+  return (
+    <UserContext.Provider value={{ user, handleLogout }}>
+      <AppRoutes user={user} setUser={setUser} />
+    </UserContext.Provider>
+  );
 };
 
 export default App;

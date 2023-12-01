@@ -3,18 +3,17 @@ import { Main } from "../../pages/main/main";
 import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
 import Favorits from "../../pages/favorites/favorits";
 import { Category } from "../../pages/category/category";
-import { SignIn } from "../../pages/login/signIn";
-import { SignUp } from "../../pages/login/signUp";
+import { AuthPage } from "../../pages/auth/auth"
 import { ProtectedRoute } from "./ProtectedRoute";
 
-const AppRoutes = ({ onAuthButtonClick, user }) => {
+const AppRoutes = ({ setUser, user }) => {
     return (
         <Routes>
             <Route
-                path="/signIn"
-                element={<SignIn onAuthButtonClick={onAuthButtonClick} />}
+                path="/auth"
+                element={<AuthPage setUser={setUser} />}
             />
-            <Route path="/signUp" element={<SignUp />} />
+
             <Route element={<ProtectedRoute isAllowed={Boolean(user)} />}>
                 <Route path="/" element={<Main />} />
                 <Route path="/favorites" element={<Favorits />} />

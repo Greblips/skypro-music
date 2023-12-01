@@ -1,14 +1,17 @@
 
 import NavMenuItems from '../NavMenuItems/NavMenuItems';
-import { useState } from "react";
+import { useState, useContext } from "react";
 import * as S from './NavMenu.styles'
 import { Link } from 'react-router-dom';
+import { UserContext } from "../Context/Context";
+
 
 
 
 const Navmenu = () => {
     const [burrgerVisible, setBurgherVisible] = useState(false);
     const toggleBurger = () => setBurgherVisible(!burrgerVisible);
+    const { handleLogout } = useContext(UserContext);
 
     return (
         <S.MainNav >
@@ -27,7 +30,8 @@ const Navmenu = () => {
                         <S.MenuList>
                             <NavMenuItems item={{ link: "/", text: "Главное" }} />
                             <NavMenuItems item={{ link: "/favorites", text: "Мой плейлист" }} />
-                            <NavMenuItems item={{ link: "/signIn", text: "Выйти" }} />
+                            <NavMenuItems item={{ link: "/auth", text: "Выйти" }}
+                                handleLogout={handleLogout} />
                         </S.MenuList>
                     </S.NavMenu>
                 )

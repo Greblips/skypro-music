@@ -4,7 +4,7 @@ import Navmenu from "../../components/NavMenu/Navmenu";
 import { Sidebar } from "../../components/SideBar/SideBar";
 import TracksList from "../../components/TrackList/TracksList";
 import * as S from './main.style';
-import { getTracksAll } from "../../api"
+import { getTracksAll } from "../../components/Api/api"
 import TrackListSearh from "../../components/TrackListSearh/TrackListSearh"
 import SideBarPersonal from "../../components/SideBarPersonal/SideBarPersonal";
 

@@ -3,7 +3,7 @@ import { formatTime } from "../../utils/formatTime";
 import * as S from './Tracks.style'
 
 
-const Tracks = ({ isLoading, tracks, handleCurrentTrack, loadingTracksError }) => {
+const Tracks = ({ tracks, handleCurrentTrack, loadingTracksError }) => {
 
     const trackItems = tracks.map((track) => (
 

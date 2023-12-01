@@ -1,7 +1,7 @@
 import * as S from "../SideBar/SideBar.styles";
 import { playListArr } from "../../utils/playListArr";
 import Skeleton from "../../utils/Skeleton"
-import SideBarPersonal from "../SideBarPersonal/SideBarPersonal";
+
 
 
 export function Sidebar({ isLoading }) {
