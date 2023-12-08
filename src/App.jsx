@@ -2,6 +2,10 @@ import AppRoutes from "./components/Routes/Routes";
 import { useState } from "react";
 import { UserContext } from "./components/Context/Context";
 import { useNavigate } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
+
+
 
 const App = () => {
   const navigate = useNavigate();
@@ -16,8 +20,10 @@ const App = () => {
   };
   return (
     <UserContext.Provider value={{ user, handleLogout }}>
-      <AppRoutes user={user} setUser={setUser} />
-    </UserContext.Provider>
+      <Provider store={store}>
+        <AppRoutes user={user} setUser={setUser} />
+      </Provider>
+    </UserContext.Provider >
   );
 };
 

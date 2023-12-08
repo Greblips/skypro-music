@@ -1,33 +1,61 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable jsx-a11y/media-has-caption */
 import { useRef, useState, useEffect } from "react";
-// import Skeleton from '../../utils/Skeleton';
+import { useSelector, useDispatch } from "react-redux";
 import * as S from "./AudioPlayer.styles";
-import AudioPlayerIcons from '../AudioPlayerIcons/AudioPlayerIcons';
-import { BarPlayerProgress } from "../AudioPlayerProgress/AudioPlayerProgress";
+// import { SkeletonPlayBar } from "../TrackListItem/Tracks.style";
+import AudioPlayerIcons from "../AudioPlayerIcons/AudioPlayerIcons";
 import { AudioVolume } from "../AudioVolume/AudioVolume";
+import { BarPlayerProgress } from "../AudioPlayerProgress/AudioPlayerProgress";
+import {
+    isPlayingSelector,
+    allTracksSelector,
+    indexCurrentTrackSelector,
+    shuffledSelector,
+    shuffledAllTracksSelector,
+} from "../../store/selectors/tracks";
+import {
+    setIsPlaying,
+    setNextTrack,
+    setPrevTrack,
+    toggleShuffleTracks,
+} from "../../store/actions/creators/tracks";
 
-export const AudioPlayer = ({ currentTrack }) => {
-    const [isPlaying, setIsPlaying] = useState(false);
-    const audioRef = useRef(null);
-    const [duration, setDuration] = useState(0);
+export function AudioPlayer({ currentTrack }) {
+    const dispatch = useDispatch();
+    const isPlaying = useSelector(isPlayingSelector);
+    const shuffled = useSelector(shuffledSelector);
+    const shuffledAllTracks = useSelector(shuffledAllTracksSelector);
+    const tracks = useSelector(allTracksSelector);
     const [timeProgress, setTimeProgress] = useState(0);
-    const [repeatTrack, setRepeatTrack] = useState(false);
+    const [duration, setDuration] = useState(0);
+    const audioRef = useRef(null);
+    const indexCurrentTrack = useSelector(indexCurrentTrackSelector);
 
     const handleStart = () => {
         audioRef.current.play();
-        setIsPlaying(true);
+        dispatch(setIsPlaying(true));
     };
     const handleStop = () => {
         audioRef.current.pause();
-        setIsPlaying(false);
+        dispatch(setIsPlaying(false));
     };
 
-
     const togglePlay = isPlaying ? handleStop : handleStart;
+    const arrayTracksAll = shuffled ? shuffledAllTracks : tracks;
 
     useEffect(() => {
         handleStart();
         audioRef.current.onended = () => {
-            setIsPlaying(false);
+            if (indexCurrentTrack < (arrayTracksAll.length - 1)) {
+                dispatch(
+                    setNextTrack(
+                        arrayTracksAll[indexCurrentTrack + 1],
+                        indexCurrentTrack + 1
+                    )
+                );
+            }
+            dispatch(setIsPlaying(false));
         };
     }, [currentTrack]);
 
@@ -38,11 +66,28 @@ export const AudioPlayer = ({ currentTrack }) => {
         setTimeProgress(audioRef.current.currentTime);
     };
 
+    const [repeatTrack, setRepeatTrack] = useState(false);
+
     const toggleTrackRepeat = () => {
         audioRef.current.loop = !repeatTrack;
         setRepeatTrack(!repeatTrack);
     };
-
+    const toggleCurrentTrack = (alt) => {
+        if (alt === "next" && indexCurrentTrack < (arrayTracksAll.length - 1)) {
+            const indexNextTrack = indexCurrentTrack + 1;
+            console.log("Next", arrayTracksAll[indexNextTrack]);
+            return dispatch(
+                setNextTrack(arrayTracksAll[indexNextTrack], indexNextTrack)
+            );
+        }
+        if (alt === "prev" && indexCurrentTrack > 0) {
+            const indexPredTrack = indexCurrentTrack - 1;
+            console.log("Prev", arrayTracksAll[indexPredTrack]);
+            return dispatch(
+                setPrevTrack(arrayTracksAll[indexPredTrack], indexPredTrack)
+            );
+        }
+    };
 
     return (
         <S.bar>
@@ -51,7 +96,6 @@ export const AudioPlayer = ({ currentTrack }) => {
                 ref={audioRef}
                 onTimeUpdate={onTimeUpdate}
                 onLoadedMetadata={onLoadedMetadata}
-
             />
             <S.barContent>
                 <BarPlayerProgress
@@ -65,7 +109,7 @@ export const AudioPlayer = ({ currentTrack }) => {
                             <AudioPlayerIcons
                                 alt="prev"
                                 click={() => {
-                                    alert("Еще не реализовано");
+                                    toggleCurrentTrack("prev");
                                 }}
                             />
                             <AudioPlayerIcons
@@ -75,18 +119,15 @@ export const AudioPlayer = ({ currentTrack }) => {
                             <AudioPlayerIcons
                                 alt="next"
                                 click={() => {
-                                    alert("Еще не реализовано");
+                                    toggleCurrentTrack("next");
                                 }}
                             />
-                            <AudioPlayerIcons
-                                alt="repeat"
-                                click={toggleTrackRepeat}
-                                repeatTrack={repeatTrack}
-                            />
+                            <AudioPlayerIcons alt="repeat" click={toggleTrackRepeat} />
+
                             <AudioPlayerIcons
                                 alt="shuffle"
                                 click={() => {
-                                    alert("Еще не реализовано");
+                                    dispatch(toggleShuffleTracks(!shuffled));
                                 }}
                             />
                         </S.playerControls>
@@ -97,16 +138,23 @@ export const AudioPlayer = ({ currentTrack }) => {
                                         <use xlinkHref="img/icon/sprite.svg#icon-note" />
                                     </S.trackPlaySvg>
                                 </S.trackPlayImage>
+
+
                                 <S.trackPlayAuthor>
                                     <S.trackPlayAuthorLink href="http://">
                                         {currentTrack.name}
                                     </S.trackPlayAuthorLink>
                                 </S.trackPlayAuthor>
+
+
+
                                 <S.trackPlayAlbum>
                                     <S.trackPlayAlbumLink href="http://">
                                         {currentTrack.author}
                                     </S.trackPlayAlbumLink>
                                 </S.trackPlayAlbum>
+
+
                             </S.trackPlayContain>
                             <S.trackPlayLikeDis>
                                 <S.trackPlayLike>
@@ -126,6 +174,5 @@ export const AudioPlayer = ({ currentTrack }) => {
                 </S.barPlayerBlock>
             </S.barContent>
         </S.bar>
-
     );
 }

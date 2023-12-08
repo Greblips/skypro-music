@@ -13,15 +13,11 @@ const AudioPlayerIcons = (props) => {
                 props.click();
             }}
         >
-            <S.playerBtnSvg
-                $style={props.alt}
-                alt={props.alt}
-                $active={props.repeatTrack}
-            >
+            <S.playerBtnSvg $style={props.alt} alt={props.alt} $active={isActive}>
                 <use xlinkHref={`img/icon/sprite.svg#icon-${props.alt}`} />
             </S.playerBtnSvg>
         </S.playerBtn>
     );
-};
+}
 
 export default AudioPlayerIcons;

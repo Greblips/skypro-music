@@ -1,4 +1,15 @@
-import styled from "styled-components";
+import styled, { keyframes, css } from "styled-components";
+
+export const blink = keyframes`
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0.2;
+  }
+
+`;
 
 export const playlistItem = styled.li`
   width: 100%;
@@ -64,6 +75,13 @@ export const trackTitleImage = styled.div`
   margin-right: 17px;
 `;
 
+export const trackTitleSvg = styled.svg`
+  width: 18px;
+  height: 17px;
+  fill: transparent;
+  stroke: #4e4e4e;
+`;
+
 export const trackTitleText = styled.div``;
 
 export const trackTitleLink = styled.a`
@@ -120,4 +138,29 @@ export const trackTimeText = styled.span`
   line-height: 24px;
   text-align: right;
   color: #696969;
+`;
+
+const animationPointPulse = () => css`
+  animation: pulse 0.6s ease-in-out infinite both;
+
+  @keyframes pulse {
+    0%,
+    to {
+      transform: scale(0.5);
+    }
+    50% {
+      transform: scale(1);
+    }
+  }
+`;
+
+export const PointPlaying = styled.div`
+  position: relative; // Нужно будет в будущем, для позиционирования эффекта
+  text-align: center;
+  padding: 8px;
+  width: 16px;
+  height: 16px;
+  background-color: #b672ff;
+  border-radius: 50%;
+  ${(props) => (props.$playing ? animationPointPulse : "")};
 `;

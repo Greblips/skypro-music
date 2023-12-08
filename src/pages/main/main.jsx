@@ -7,15 +7,31 @@ import * as S from './main.style';
 import { getTracksAll } from "../../components/Api/api"
 import TrackListSearh from "../../components/TrackListSearh/TrackListSearh"
 import SideBarPersonal from "../../components/SideBarPersonal/SideBarPersonal";
+import { useDispatch, useSelector } from "react-redux";
+import { setAllTracks } from "../../store/actions/creators/tracks";
+import {
+    allTracksSelector,
+    currentTrackSelector,
+} from "../../store/selectors/tracks";
+
+import { setCurrentTrack } from "../../store/actions/creators/tracks";
 
 
 export const Main = () => {
+    const dispatch = useDispatch();
     const [isLoading, setLoading] = useState(true);
-    const [tracks, setTracks] = useState([]);
-    const [currentTrack, setCurrentTrack] = useState(null);
-    const handleCurrentTrack = (track) => setCurrentTrack(track);
+    const tracks = useSelector(allTracksSelector);
 
     const [loadingTracksError, setLoadingTracksError] = useState(null);
+    const currentTrack = useSelector(currentTrackSelector);
+
+    const handleCurrentTrack = (track) => {
+        const indexCurrentTrack = tracks.indexOf(track);
+        dispatch(setCurrentTrack(track, indexCurrentTrack));
+        console.log(track);
+        console.log("indexCurrentTrack: ", indexCurrentTrack);
+    };
+
 
 
 
@@ -24,7 +40,7 @@ export const Main = () => {
 
         getTracksAll()
             .then((track) => {
-                setTracks(track);
+                dispatch(setAllTracks(track))
                 setLoading(false);
             })
             .catch((error) => {
