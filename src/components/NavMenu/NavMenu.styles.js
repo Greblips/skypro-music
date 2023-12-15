@@ -1,28 +1,26 @@
 import { styled } from "styled-components";
 
-export const MainNav = styled.nav`
+export const mainNav = styled.nav`
+  width: 244px;
   background-color: #181818;
-  grid-column: 1 / 2;
-  grid-row: 1 / 3;
-  height: 100%;
-  width: 100%;
-  padding: 30px 14%;
-  box-sizing: border-box;
+  padding: 20px 0 20px 36px;
 `;
 
-export const NavLogo = styled.div`
+export const navLogo = styled.div`
   width: 113.33px;
   height: 43px;
+  padding: 13px 0 13px 0;
   background-color: transparent;
+  margin-bottom: 20px;
 `;
 
-export const Logoimage = styled.img`
+export const logoImage = styled.img`
   width: 113.33px;
   height: 17px;
   color: #181818;
 `;
 
-export const NavBurger = styled.div`
+export const navBurger = styled.button`
   width: 20px;
   height: 36px;
   padding: 13px 0;
@@ -36,21 +34,22 @@ export const NavBurger = styled.div`
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  background: none;
+  border: none;
 `;
 
-export const BurgerLine = styled.span`
+export const burgerLine = styled.span`
   display: inline-block;
   width: 100%;
   height: 1px;
   background-color: #d3d3d3;
 `;
 
-export const NavMenu = styled.div`
-  display: flex;
+export const navMenu = styled.div`
+  display: block;
   visibility: visible;
 `;
 
-export const MenuList = styled.ul`
-  position: absolute;
+export const menuList = styled.ul`
   padding: 18px 0 10px 0;
 `;

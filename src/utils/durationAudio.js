@@ -4,6 +4,7 @@ export function getDurationAudio(duration) {
 
   const minutes = min < 10 ? `0${min.toString()}` : min.toString();
   const seconds = sec < 10 ? `0${sec.toString()}` : sec.toString();
+   
 
   return `${minutes}:${seconds}`;
 }

@@ -1,12 +1,9 @@
 import styled from "styled-components";
 
 export const bar = styled.div`
-  display: grid;
-
-  box-sizing: border-box;
-  position: fixed;
-  left: 0;
+  position: absolute;
   bottom: 0;
+  left: 0;
   width: 100%;
   background: rgba(28, 28, 28, 0.9);
 `;
@@ -49,6 +46,8 @@ export const barPlayer = styled.div`
   -ms-flex-pack: start;
   justify-content: flex-start;
 `;
+
+
 
 export const playerControls = styled.div`
   display: -webkit-box;

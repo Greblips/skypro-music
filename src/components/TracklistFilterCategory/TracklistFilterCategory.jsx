@@ -1,30 +1,28 @@
+import * as S from "./TrackListFilterCategory.style";
 
-import * as S from './TracklistFilterCategory.style'
+export function TrackListFilterCategory({
+  nameCategory,
+  content,
+  isActiveCategory,
+  setActiveCategory,
+}) {
+  const switchСategoryFilter = () =>
+    setActiveCategory(isActiveCategory === nameCategory ? "" : nameCategory);
 
-const TrackListFilterCategory = ({
-    nameCategory,
-    content,
-    isActiveCategory,
-    setActiveCategory,
-}) => {
-    const switchСategoryFilter = () =>
-        setActiveCategory(isActiveCategory === nameCategory ? "" : nameCategory);
-
-    return (
-        <S.filterCategoryName>
-            <S.filterButton
-                type="button"
-                onClick={switchСategoryFilter}
-                $activeStyle={isActiveCategory === nameCategory}
-            >
-                {nameCategory}
-            </S.filterButton>
-            {isActiveCategory === nameCategory && (
-                <S.filterCategoryMenu>
-                    <S.filterList>{content}</S.filterList>
-                </S.filterCategoryMenu>
-            )}
-        </S.filterCategoryName>
-    );
+  return (
+    <S.filterCategoryName>
+      <S.filterButton
+        type="button"
+        onClick={switchСategoryFilter}
+        $activeStyle={isActiveCategory === nameCategory}
+      >
+        {nameCategory}
+      </S.filterButton>
+      {isActiveCategory === nameCategory && (
+        <S.filterCategoryMenu>
+          <S.filterList>{content}</S.filterList>
+        </S.filterCategoryMenu>
+      )}
+    </S.filterCategoryName>
+  );
 }
-export default TrackListFilterCategory

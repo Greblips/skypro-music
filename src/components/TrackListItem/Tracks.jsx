@@ -1,66 +1,116 @@
-
-import { formatTime } from "../../utils/formatTime";
-import * as S from './Tracks.style'
 import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import * as S from "./Tracks.style";
 import {
-    currentTrackSelector,
-    isPlayingSelector,
+  currentTrackSelector,
+  isPlayingSelector,
 } from "../../store/selectors/tracks";
+import {
+  useSetLikeMutation,
+  useSetDislikeMutation,
+} from "../../servicesQuery/tracks";
+import { AudioPlayerIcons } from "../AudioPlayerIcons/AudioPlayerIcons";
 
+export function Tracks({ track, isLoading, isFavorites = false }) {
+  const currentTrack = useSelector(currentTrackSelector);
+  const isPlaying = useSelector(isPlayingSelector);
+  const [setLike] = useSetLikeMutation();
+  const [setDislike] = useSetDislikeMutation();
+  const auth = JSON.parse(localStorage.getItem("user"));
+  const isUserLike = Boolean(
+    track?.stared_user?.find((user) => user.id === auth.id)
+  );
+  const [isLiked, setIsLiked] = useState(isUserLike);
 
-const Tracks = ({ tracks, handleCurrentTrack, loadingTracksError }) => {
-    const currentTrack = useSelector(currentTrackSelector);
-    const isPlaying = useSelector(isPlayingSelector);
+  useEffect(() => {
+    if (isFavorites) {
+      setIsLiked(isFavorites);
+      console.log("isFavorites", isFavorites);
+    } else {
+      setIsLiked(isUserLike);
+      console.log("isUserLike", isUserLike);
+    }
+  }, [isUserLike, isFavorites]);
 
-    const trackItems = tracks.map((track) => (
+  const handleLike = async (id) => {
+    setIsLiked(true);
+    await setLike({ id }).unwrap();
+  };
 
+  const handleDislike = async (id) => {
+    setIsLiked(false);
+    await setDislike({ id }).unwrap();
+  };
 
-        < S.playlistItem key={track.id} onClick={() => handleCurrentTrack(track)}>
+  const toggleLikeDislike = (id) =>
+    isLiked ? handleDislike(id) : handleLike(id);
 
-            <S.playlistTrack>
-                <S.trackTitle>
-                    <S.trackTitleImage>
-                        {currentTrack && currentTrack.id === track.id ? (
-                            <S.PointPlaying $playing={isPlaying} />
-                        ) : (
-                            <S.trackTitleSvg alt="music">
-                                <use xlinkHref="img/icon/sprite.svg#icon-note" />
-                            </S.trackTitleSvg>
-                        )}
-                    </S.trackTitleImage>
+  // const handleLikeClick = () => {
+  //   if (isLiked) {
+  //     setDislike({ id: track.id });
+  //     setIsLiked(true);
+  //   } else {
+  //     setLike({ id: track.id });
+  //     setIsLiked(false);
+  //   }
+  // };
 
-                    <S.trackTitleText>
-                        <S.trackTitleLink to="http://">
-                            {track.name}
-                            {track.remix ? (
-                                <span className="track__title-span">({track.remix})</span>
-                            ) : (
-                                ""
-                            )}
-                        </S.trackTitleLink>
-                    </S.trackTitleText>
-                </S.trackTitle>
-                < S.trackAuthor>
-                    <S.trackAuthorLink to="http://">
-                        {track.author}
-                    </S.trackAuthorLink>
-                </S.trackAuthor>
+  return (
+    <S.playlistTrack>
+      <S.trackTitle>
+        <S.trackTitleImage>
+          {currentTrack && currentTrack.id === track?.id ? (
+            <S.PointPlaying $playing={isPlaying} />
+          ) : (
+            <S.trackTitleSvg alt="music">
+              <use xlinkHref="img/icon/sprite.svg#icon-note" />
+            </S.trackTitleSvg>
+          )}
+        </S.trackTitleImage>
 
-                <S.trackAlbum>
-                    <S.trackAlbumLink to="http://">
-                        {track.album}
-                    </S.trackAlbumLink>
-                </S.trackAlbum>
-                <S.trackTime>
-                    <S.trackTimeSvg alt="time">
-                        <use xlinkHref="img/icon/sprite.svg#icon-like" />
-                    </S.trackTimeSvg>
-                    <S.trackTimeText> {formatTime(track.duration_in_seconds)}</S.trackTimeText>
-                </S.trackTime>
-            </S.playlistTrack>
-        </S.playlistItem >
-    ));
+        {!isLoading ? (
+          <div className="track__title-text">
+            <S.trackTitleLink href="http://">
+              {track.name}
+              {track.remix ? (
+                <S.trackTitleSpan>({track.remix})</S.trackTitleSpan>
+              ) : (
+                ""
+              )}
+            </S.trackTitleLink>
+          </div>
+        ) : (
+          <S.Skeleton />
+        )}
+      </S.trackTitle>
 
-    return <S.contentPlaylist>{loadingTracksError ? (<div>Не удалось загрузить плейлист, попробуйте позже</div>) : (trackItems)}</S.contentPlaylist>;
-};
-export default Tracks;
+      {!isLoading ? (
+        <S.trackAuthor>
+          <S.trackAuthorLink href="http://">{track.author}</S.trackAuthorLink>
+        </S.trackAuthor>
+      ) : (
+        <S.Skeleton />
+      )}
+
+      {!isLoading ? (
+        <S.trackAlbum>
+          <S.trackAlbumLink href="http://">{track.album}</S.trackAlbumLink>
+        </S.trackAlbum>
+      ) : (
+        <S.skeletonAlbum />
+      )}
+      {!isLoading && (
+        <S.trackTime>
+          <AudioPlayerIcons
+            alt="like"
+            click={() => {
+              toggleLikeDislike(track?.id);
+            }}
+            isActive={isLiked}
+          />
+          <S.trackTimeText> {track.duration_in_seconds}</S.trackTimeText>
+        </S.trackTime>
+      )}
+    </S.playlistTrack>
+  );
+}

@@ -23,11 +23,10 @@ export const filterButton = styled.button`
     border-color: #d9b6ff;
     color: #d9b6ff;
     cursor: pointer;
-    &:active {
-      border-color: #ad61ff;
-      color: #ad61ff;
-      cursor: pointer;
-    }
+  &:active {
+    border-color: #ad61ff;
+    color: #ad61ff;
+    cursor: pointer;
   }
 `;
 
@@ -45,7 +44,6 @@ export const filterCategoryMenu = styled.div`
   top: 49px;
   z-index: 2;
 `;
-
 export const filterList = styled.ul`
   width: 180px;
   display: flex;
