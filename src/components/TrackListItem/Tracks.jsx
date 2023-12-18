@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { formatTime } from "../../utils/formatTime";
 import { useEffect, useState } from "react";
 import * as S from "./Tracks.style";
 import {
@@ -25,10 +26,10 @@ export function Tracks({ track, isLoading, isFavorites = false }) {
   useEffect(() => {
     if (isFavorites) {
       setIsLiked(isFavorites);
-      console.log("isFavorites", isFavorites);
+
     } else {
       setIsLiked(isUserLike);
-      console.log("isUserLike", isUserLike);
+
     }
   }, [isUserLike, isFavorites]);
 
@@ -45,15 +46,6 @@ export function Tracks({ track, isLoading, isFavorites = false }) {
   const toggleLikeDislike = (id) =>
     isLiked ? handleDislike(id) : handleLike(id);
 
-  // const handleLikeClick = () => {
-  //   if (isLiked) {
-  //     setDislike({ id: track.id });
-  //     setIsLiked(true);
-  //   } else {
-  //     setLike({ id: track.id });
-  //     setIsLiked(false);
-  //   }
-  // };
 
   return (
     <S.playlistTrack>
@@ -108,7 +100,7 @@ export function Tracks({ track, isLoading, isFavorites = false }) {
             }}
             isActive={isLiked}
           />
-          <S.trackTimeText> {track.duration_in_seconds}</S.trackTimeText>
+          <S.trackTimeText> {formatTime(track.duration_in_seconds)}</S.trackTimeText>
         </S.trackTime>
       )}
     </S.playlistTrack>

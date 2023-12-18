@@ -12,7 +12,6 @@ export function Main() {
 
   useEffect(() => {
     if (data) {
-      console.log(data);
       dispatch(setAllTracks(data));
       dispatch(setCurrentPage("Main"));
     }

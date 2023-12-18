@@ -7,8 +7,6 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.access;
 
-      console.log("accessToken", token);
-
       if (token) {
         headers.set("authorization", `Bearer ${token}`);
       }
@@ -23,8 +21,7 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
   }
   const logOut = () => {
     api.dispatch(setAuth(null));
-    // localStorage.removeItem("auth");
-    // window.location.href("/auth");
+
   };
 
   const { auth } = api.getState();
@@ -70,9 +67,9 @@ export const tracksQuery = createApi({
       providesTags: (result) =>
         result
           ? [
-              ...result.map(({ id }) => ({ type: "Tracks", id })),
-              { type: "Tracks", id: "LIST" },
-            ]
+            ...result.map(({ id }) => ({ type: "Tracks", id })),
+            { type: "Tracks", id: "LIST" },
+          ]
           : [{ type: "Tracks", id: "LIST" }],
     }),
     getFavouriteTracksAll: build.query({
@@ -80,9 +77,9 @@ export const tracksQuery = createApi({
       providesTags: (result) =>
         result
           ? [
-              ...result.map(({ id }) => ({ type: "Tracks", id })),
-              { type: "Tracks", id: "LIST" },
-            ]
+            ...result.map(({ id }) => ({ type: "Tracks", id })),
+            { type: "Tracks", id: "LIST" },
+          ]
           : [{ type: "Tracks", id: "LIST" }],
     }),
 
