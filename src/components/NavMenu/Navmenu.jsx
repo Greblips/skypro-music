@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import * as S from "./NavMenu.styles";
 import { NavMenuItems } from "../NavMenuItems/NavMenuItems";
 import { UserContext } from "../Context/Context";
+import { Link } from 'react-router-dom';
 
 export function NavMenu() {
   const [visible, setVisible] = useState(false);
@@ -10,7 +11,7 @@ export function NavMenu() {
   return (
     <S.mainNav>
       <S.navLogo>
-        <S.logoImage src="img/logo.png" alt="logo" />
+        <Link to="/"> <S.Logoimage src="img/logo.png" alt="logo" /></Link>
       </S.navLogo>
       <S.navBurger type="button" onClick={toggleVisibility}>
         <S.burgerLine />
