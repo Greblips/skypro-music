@@ -2,8 +2,15 @@ import { styled } from "styled-components";
 import { NavLink } from "react-router-dom";
 
 export const mainSidebar = styled.div`
-  max-width: 418px;
-  padding: 20px 90px 20px 78px;
+  box-sizing: border-box;
+  grid-column: 3 / -1;
+  padding-right: 8%;
+  min-width: 100%;
+  color: #fff;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
 `;
 export const sidebarPersonal = styled.div`
   display: -webkit-box;

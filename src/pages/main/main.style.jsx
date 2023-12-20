@@ -2,13 +2,15 @@ import { styled } from "styled-components";
 
 export const wrapper = styled.div`
   width: 100%;
-  min-height: 100%;
-  overflow: hidden;
   background-color: #383838;
+
 `;
 export const container = styled.div`
+  display: grid;
+  grid-template-columns: 13% 65% 22%;
+  grid-template-rows: 70px 1fr;
   max-width: 1920px;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0 auto;
   position: relative;
   background-color: #181818;
@@ -28,8 +30,13 @@ export const main = styled.main`
   justify-content: space-between;
 `;
 export const MainCenterBlock = styled.div`
-    min-width: 600px;
-  -webkit-box-flex: 3;
-  -ms-flex-positive: 3;
-  flex-grow: 3;
+  box-sizing: border-box;
+  grid-column: 2 / 3;
+  min-width: 100%;
+  height:100vh;
+  margin-left: 4%;
+  display: flex;
+  align-items: center;
+
+  border-bottom: 1px solid #4e4e4e;
 `;

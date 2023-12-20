@@ -28,17 +28,18 @@ const playlistTitleCol = styled.div`
 `;
 
 export const col01 = styled(playlistTitleCol)`
-  width: 447px;
+  width: 400px;
 `;
 export const col02 = styled(playlistTitleCol)`
-  width: 321px;
+  width: 300px;
 `;
 export const col03 = styled(playlistTitleCol)`
   width: 245px;
 `;
 export const col04 = styled(playlistTitleCol)`
-  width: 60px;
-  text-align: end;
+  width: 90px;
+  text-align: start;
+  padding-left: 25px;
 `;
 
 export const playlistTitleSvg = styled.svg`

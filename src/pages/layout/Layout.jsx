@@ -8,6 +8,7 @@ import { AudioPlayer } from "../../components/AudioPlayer/AudioPlayer";
 import { currentTrackSelector } from "../../store/selectors/tracks";
 import CenterBlockSearch from "../../components/CenterBlockSearch/CenterBlockSearch";
 import { useGetTracksAllQuery } from "../../servicesQuery/tracks";
+import { SideBarPersonal } from "../../components/SideBarPersonal/SideBarPersonal"
 
 export default function Layout() {
   const currentTrack = useSelector(currentTrackSelector);
@@ -17,15 +18,14 @@ export default function Layout() {
     <div className="App">
       <S.wrapper>
         <S.container>
-          <S.main>
-            <NavMenu />
-            <S.MainCenterBlock>
-              <CenterBlockSearch />
+          <NavMenu />
+          <CenterBlockSearch />
+          <SideBarPersonal />
 
-              <Outlet />
-            </S.MainCenterBlock>
-            <Sidebar isLoading={isLoading} loadingTracksError={isError} />
-          </S.main>
+          <Outlet />
+
+          <Sidebar isLoading={isLoading} loadingTracksError={isError} />
+
           {currentTrack && (
             <AudioPlayer isLoading={isLoading} currentTrack={currentTrack} />
           )}

@@ -1,9 +1,13 @@
 import { styled } from "styled-components";
 
 export const mainNav = styled.nav`
-  width: 244px;
   background-color: #181818;
-  padding: 20px 0 20px 36px;
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  height: 100%;
+  width: 100%;
+  padding: 30px 14%;
+  box-sizing: border-box;
 `;
 
 export const navLogo = styled.div`

@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const mainCenterBlock = styled.div`
+  grid-column: 2 / 3;
+  min-width: 100%;
+  padding: 20px 40px 20px 111px;
+`;
+
 export const centerblockH2 = styled.h2`
   font-style: normal;
   font-weight: 400;
@@ -27,34 +33,8 @@ export const contentPlaylist = styled.ul`
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  height: 500px;
+  height: 600px;
   overflow-y: auto;
-  /* padding-bottom: 100px; */
-
-  /* полоса прокрутки (скроллбар) */
-  // &::-webkit-scrollbar {
-  //   width: 25px;
-  // }
-
-  &::-webkit-scrollbar-track {
-    background-color: white;
-    border-radius: 2px;
-  }
-  /* ползунок скроллбара */
-  &::-webkit-scrollbar-thumb {
-    // border-radius: 5px;
-    box-shadow: inset 1px 1px 10px #f3faf7;
-    background-color: #909090;
-    height: 10px;
-  }
-
-  &::-webkit-scrollbar-thumb:active {
-    background-color: #4b4949;
-  }
-  /* Стрелки */
-  &::-webkit-scrollbar-button:vertical:start:decrement {
-    background-color: #909090;
-  }
 `;
 
 export const playlistItem = styled.li`

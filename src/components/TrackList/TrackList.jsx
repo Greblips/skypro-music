@@ -66,7 +66,7 @@ export function TrackList({ title, error, isLoading, tracks, isFavorites }) {
   };
 
   return (
-    <>
+    < S.mainCenterBlock>
       <S.centerblockH2 className="centerblock__h2">
         {title || "Треки"}
       </S.centerblockH2>
@@ -111,6 +111,6 @@ export function TrackList({ title, error, isLoading, tracks, isFavorites }) {
           </S.contentPlaylist>
         )}
       </S.centerblockContent>
-    </>
+    </S.mainCenterBlock>
   );
 }
