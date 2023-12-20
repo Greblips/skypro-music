@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-import { formatTime } from "../../utils/formatTime";
 import { useEffect, useState } from "react";
 import * as S from "./Tracks.style";
 import {
@@ -11,6 +10,7 @@ import {
   useSetDislikeMutation,
 } from "../../servicesQuery/tracks";
 import { AudioPlayerIcons } from "../AudioPlayerIcons/AudioPlayerIcons";
+import { formatTime } from "../../utils/formatTime";
 
 export function Tracks({ track, isLoading, isFavorites = false }) {
   const currentTrack = useSelector(currentTrackSelector);
@@ -26,10 +26,8 @@ export function Tracks({ track, isLoading, isFavorites = false }) {
   useEffect(() => {
     if (isFavorites) {
       setIsLiked(isFavorites);
-
     } else {
       setIsLiked(isUserLike);
-
     }
   }, [isUserLike, isFavorites]);
 
@@ -46,7 +44,6 @@ export function Tracks({ track, isLoading, isFavorites = false }) {
   const toggleLikeDislike = (id) =>
     isLiked ? handleDislike(id) : handleLike(id);
 
-
   return (
     <S.playlistTrack>
       <S.trackTitle>
@@ -55,7 +52,7 @@ export function Tracks({ track, isLoading, isFavorites = false }) {
             <S.PointPlaying $playing={isPlaying} />
           ) : (
             <S.trackTitleSvg alt="music">
-              <use xlinkHref="img/icon/sprite.svg#icon-note" />
+              <use xlinkHref="../img/icon/sprite.svg#icon-note" />
             </S.trackTitleSvg>
           )}
         </S.trackTitleImage>
@@ -100,7 +97,10 @@ export function Tracks({ track, isLoading, isFavorites = false }) {
             }}
             isActive={isLiked}
           />
-          <S.trackTimeText> {formatTime(track.duration_in_seconds)}</S.trackTimeText>
+          <S.trackTimeText>
+            {formatTime(track.duration_in_seconds)}
+          </S.trackTimeText>
+          <S.trackTimeText />
         </S.trackTime>
       )}
     </S.playlistTrack>

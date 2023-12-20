@@ -26,7 +26,7 @@ export function AudioVolume({ audioRef }) {
         </S.volumeImage>
         <S.volumeProgress>
           <S.volumeProgressLine
-            $style="input"
+
             type="range"
             min={0}
             max={100}

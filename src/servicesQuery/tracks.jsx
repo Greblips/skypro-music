@@ -21,7 +21,8 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
   }
   const logOut = () => {
     api.dispatch(setAuth(null));
-
+    // localStorage.removeItem("auth");
+    // window.location.href("/auth");
   };
 
   const { auth } = api.getState();
@@ -58,7 +59,7 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
 
 export const tracksQuery = createApi({
   reducerPath: "tracksQuery",
-  tagTypes: ["Tracks", "Favorites"],
+  tagTypes: ["Tracks", "Favorites", "Selections"],
   baseQuery: baseQueryWithReauth,
 
   endpoints: (build) => ({
@@ -67,9 +68,9 @@ export const tracksQuery = createApi({
       providesTags: (result) =>
         result
           ? [
-            ...result.map(({ id }) => ({ type: "Tracks", id })),
-            { type: "Tracks", id: "LIST" },
-          ]
+              ...result.map(({ id }) => ({ type: "Tracks", id })),
+              { type: "Tracks", id: "LIST" },
+            ]
           : [{ type: "Tracks", id: "LIST" }],
     }),
     getFavouriteTracksAll: build.query({
@@ -77,9 +78,9 @@ export const tracksQuery = createApi({
       providesTags: (result) =>
         result
           ? [
-            ...result.map(({ id }) => ({ type: "Tracks", id })),
-            { type: "Tracks", id: "LIST" },
-          ]
+              ...result.map(({ id }) => ({ type: "Tracks", id })),
+              { type: "Tracks", id: "LIST" },
+            ]
           : [{ type: "Tracks", id: "LIST" }],
     }),
 
@@ -91,6 +92,7 @@ export const tracksQuery = createApi({
       invalidatesTags: [
         { type: "Favorites", id: "LIST" },
         { type: "Tracks", id: "LIST" },
+        { type: "Selections", id: "LIST" },
       ],
     }),
 
@@ -102,7 +104,19 @@ export const tracksQuery = createApi({
       invalidatesTags: [
         { type: "Favorites", id: "LIST" },
         { type: "Tracks", id: "LIST" },
+        { type: "Selections", id: "LIST" },
       ],
+    }),
+
+    getSelections: build.query({
+      query: (id) => `catalog/selection/${id}/`,
+      providesTags: (result) =>
+        result
+          ? [
+              ...result.items.map(({ id }) => ({ type: "Selections", id })),
+              { type: "Selections", id: "LIST" },
+            ]
+          : [{ type: "Selections", id: "LIST" }],
     }),
   }),
 });
@@ -112,4 +126,5 @@ export const {
   useGetFavouriteTracksAllQuery,
   useSetLikeMutation,
   useSetDislikeMutation,
+  useGetSelectionsQuery,
 } = tracksQuery;
