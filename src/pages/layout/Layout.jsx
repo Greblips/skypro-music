@@ -2,8 +2,8 @@
 import { Outlet } from "react-router";
 import { useSelector } from "react-redux";
 import * as S from "../main/main.style";
-import { NavMenu } from "../../components/NavMenu/NavMenu";
-import { Sidebar } from "../../components/Sidebar/Sidebar";
+import { NavMenu } from '../../components/NavMenu/Navmenu'
+import { Sidebar } from '../../components/SideBar/SideBar';
 import { AudioPlayer } from "../../components/AudioPlayer/AudioPlayer";
 import { currentTrackSelector } from "../../store/selectors/tracks";
 import CenterBlockSearch from "../../components/CenterBlockSearch/CenterBlockSearch";

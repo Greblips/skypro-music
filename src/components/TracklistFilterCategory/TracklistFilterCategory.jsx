@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import * as S from "./TrackListFilterCategory.style";
+import * as S from "./TracklistFilterCategory.style";
 
 export function TrackListFilterCategory({
   nameCategory,

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import uniq from "lodash/uniq";
 import { useDispatch, useSelector } from "react-redux";
 import * as S from "./TrackListFilter.style";
-import { TrackListFilterCategory } from "../TrackListFilterCategory/TrackListFilterCategory";
+import { TrackListFilterCategory } from '../TracklistFilterCategory/TracklistFilterCategory';
 import { setFilterPlaylist } from "../../store/slices/tracksSlice";
 import { filtersPlaylistSelector } from "../../store/selectors/tracks";
 
